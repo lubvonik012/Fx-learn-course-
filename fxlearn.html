@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FXLearn — Professional Forex Trading Course</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--bg:#050a14;--bg2:#0a1628;--bg3:#0f2040;--card:#0d1d35;--border:rgba(0,212,170,0.15);--green:#00d4aa;--green2:#00ff9d;--red:#ff4d6a;--gold:#ffd166;--blue:#4dabf7;--text:#e8f4f8;--muted:#7a9bb5;--mono:"JetBrains Mono",monospace;--sans:"Space Grotesk",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:3px}
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(5,10,20,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px}
+.nav-logo{font-size:1.4rem;font-weight:700;color:var(--green);letter-spacing:-0.5px}
+.nav-logo span{color:var(--text)}
+.nav-links{display:flex;gap:25px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:var(--bg);padding:8px 20px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:20px;cursor:pointer}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;background:radial-gradient(ellipse at 20% 50%,rgba(0,212,170,0.08),transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(77,171,247,0.06),transparent 40%),var(--bg);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 L60 30 M30 0 L30 60' stroke='%2300d4aa' stroke-width='0.3' opacity='0.07'/%3E%3C/svg%3E");pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);color:var(--green);padding:6px 16px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:28px;font-family:var(--mono)}
+.hero-badge::before{content:"●";animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;line-height:1.1;margin-bottom:18px;letter-spacing:-1px}
+.hl-g{color:var(--green)}.hl-r{color:var(--red)}.hl-gold{color:var(--gold)}.hl-b{color:var(--blue)}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:580px;margin:0 auto 35px;line-height:1.8}
+.hero-stats{display:flex;gap:35px;justify-content:center;flex-wrap:wrap;margin-bottom:45px}
+.stat-num{font-size:1.9rem;font-weight:700;color:var(--green);font-family:var(--mono);display:block}
+.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-p{background:var(--green);color:var(--bg);padding:13px 30px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-p:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,212,170,.3)}
+.btn-o{border:1px solid var(--border);color:var(--text);padding:13px 30px;border-radius:8px;font-weight:600;text-decoration:none;font-size:15px;transition:all .2s}
+.btn-o:hover{border-color:var(--green);color:var(--green)}
+.section{padding:90px 5%}
+.section-label{font-family:var(--mono);font-size:12px;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:13px}
+.section-title{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700;letter-spacing:-.5px;margin-bottom:13px}
+.section-sub{color:var(--muted);font-size:1rem;max-width:580px;line-height:1.8;margin-bottom:55px}
+.lec-index{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:15px;margin-bottom:70px}
+.idx-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;cursor:pointer;transition:all .25s;text-decoration:none;display:block;position:relative;overflow:hidden}
+.idx-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--green);transform:scaleY(0);transition:transform .2s;transform-origin:bottom}
+.idx-card:hover::before{transform:scaleY(1)}
+.idx-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,212,170,.1)}
+.idx-num{font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:7px}
+.idx-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px}
+.idx-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.idx-prob{margin-top:9px;font-family:var(--mono);font-size:11px}
+.prob-hi{color:var(--green)}.prob-fo{color:var(--blue)}
+.lec-sec{border-top:1px solid var(--border);padding:75px 5%;background:var(--bg)}
+.lec-sec:nth-child(even){background:var(--bg2)}
+.lec-hdr{display:flex;align-items:flex-start;gap:20px;margin-bottom:45px}
+.lec-num{font-family:var(--mono);font-size:clamp(3rem,8vw,5.5rem);font-weight:700;color:rgba(0,212,170,.1);line-height:1;flex-shrink:0}
+.lec-tag{font-family:var(--mono);font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:7px}
+.lec-title{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:700;letter-spacing:-.5px;margin-bottom:10px}
+.lec-intro{color:var(--muted);font-size:1rem;line-height:1.8}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-bottom:30px}
+.cblock{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:26px}
+.cblock-title{font-family:var(--mono);font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:13px;display:flex;align-items:center;gap:8px}
+.cblock-text{color:var(--muted);font-size:14px;line-height:1.8}
+.cblock-text p{margin-bottom:10px}
+.cblock-text p:last-child{margin-bottom:0}
+.cblock-text strong{color:var(--text)}
+.vbox{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:28px;margin:28px 0;position:relative}
+.vbox::before{content:"CHART VISUAL";position:absolute;top:-10px;left:18px;background:var(--bg3);color:var(--green);font-family:var(--mono);font-size:10px;padding:2px 10px;border-radius:4px;letter-spacing:1px}
+.chart-c{background:var(--bg3);border-radius:8px;padding:22px;font-family:var(--mono);font-size:12px;color:var(--green);line-height:1.8;overflow-x:auto;white-space:pre}
+.ta{border-radius:12px;padding:26px;margin:26px 0;border:1px solid}
+.ta-buy{background:rgba(0,212,170,.05);border-color:rgba(0,212,170,.3)}
+.ta-sell{background:rgba(255,77,106,.05);border-color:rgba(255,77,106,.3)}
+.ta-hdr{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.badge-buy{padding:5px 14px;border-radius:6px;font-family:var(--mono);font-size:12px;font-weight:700;background:rgba(0,212,170,.2);color:var(--green)}
+.badge-sell{padding:5px 14px;border-radius:6px;font-family:var(--mono);font-size:12px;font-weight:700;background:rgba(255,77,106,.2);color:var(--red)}
+.steps{display:flex;flex-direction:column;gap:9px}
+.step{display:flex;gap:13px;align-items:flex-start}
+.step-n{width:23px;height:23px;border-radius:50%;background:rgba(0,212,170,.15);color:var(--green);font-family:var(--mono);font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-t{font-size:14px;color:var(--muted);line-height:1.6}
+.step-t strong{color:var(--text)}
+.prob-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:23px;margin:26px 0}
+.prob-hdr{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:18px}
+.prob-rows{display:flex;flex-direction:column;gap:11px}
+.prob-row{display:flex;align-items:center;gap:13px}
+.prob-lbl{font-size:13px;color:var(--muted);min-width:195px}
+.prob-track{flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+.prob-fill{height:100%;border-radius:3px;transition:width 1.5s ease}
+.f-hi{background:linear-gradient(90deg,var(--green),var(--green2))}
+.f-md{background:linear-gradient(90deg,var(--gold),#ff9f43)}
+.f-lo{background:linear-gradient(90deg,var(--red),#ff6b6b)}
+.prob-pct{font-family:var(--mono);font-size:13px;font-weight:600;min-width:44px;text-align:right}
+.scenario{background:var(--bg3);border:1px solid rgba(77,171,247,.2);border-radius:12px;padding:26px;margin:26px 0}
+.scenario-hdr{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.sc-badge{background:rgba(77,171,247,.15);color:var(--blue);padding:4px 11px;border-radius:4px;font-family:var(--mono);font-size:11px}
+.sc-title{font-weight:600;color:var(--blue)}
+.td-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:11px;margin-top:18px}
+.td-item{background:rgba(255,255,255,.04);border-radius:8px;padding:11px}
+.td-lbl{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+.td-val{font-family:var(--mono);font-size:13px;font-weight:600}
+.td-buy{color:var(--green)}.td-sell{color:var(--red)}.td-neu{color:var(--text)}.td-gold{color:var(--gold)}
+.takeaways{background:rgba(0,212,170,.05);border:1px solid rgba(0,212,170,.15);border-radius:12px;padding:23px;margin:26px 0}
+.tk-title{font-family:var(--mono);font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:13px}
+.tk-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.tk-list li{display:flex;gap:10px;font-size:14px;color:var(--muted);line-height:1.6}
+.tk-list li::before{content:"→";color:var(--green);flex-shrink:0}
+.tk-list li strong{color:var(--text)}
+.quiz{background:var(--card);border:1px solid rgba(255,209,102,.2);border-radius:12px;padding:23px;margin:26px 0}
+.quiz-title{font-family:var(--mono);font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:13px}
+.quiz-q{font-size:1rem;font-weight:600;margin-bottom:18px}
+.quiz-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px 15px;border-radius:6px;cursor:pointer;font-size:13px;font-family:var(--sans);transition:all .2s;width:100%;text-align:left;margin-bottom:7px;display:block}
+.quiz-btn:hover{border-color:var(--gold);color:var(--gold)}
+.quiz-ans{display:none;background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.2);border-radius:8px;padding:14px;margin-top:13px;font-size:14px;color:var(--muted)}
+.quiz-ans strong{color:var(--green)}
+.quiz-ans.show{display:block}
+.fx-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+.fx-table th{background:var(--bg3);color:var(--green);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:1px;padding:11px 14px;text-align:left;border-bottom:1px solid var(--border)}
+.fx-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted)}
+.fx-table td:first-child{color:var(--text);font-weight:500}
+.fx-table tr:hover td{background:rgba(0,212,170,.03)}
+.info-box{background:rgba(77,171,247,.08);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-size:14px;color:var(--muted);line-height:1.7}
+.info-box strong{color:var(--blue)}
+.warn-box{background:rgba(255,209,102,.08);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-size:14px;color:var(--muted);line-height:1.7}
+.warn-box strong{color:var(--gold)}
+.session-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:11px;margin:18px 0}
+.s-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:15px}
+.s-name{font-weight:600;margin-bottom:4px;font-size:14px}
+.s-time{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:9px}
+.s-bar{height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
+.s-fill{height:100%;border-radius:3px}
+.s-lon .s-fill{background:var(--green);width:95%}
+.s-ny .s-fill{background:var(--green);width:82%}
+.s-tok .s-fill{background:var(--gold);width:52%}
+.s-syd .s-fill{background:var(--muted);width:28%}
+.s-ov{background:rgba(0,212,170,.12);border-color:rgba(0,212,170,.4)}
+.s-ov .s-name{color:var(--green)}
+.s-ov .s-fill{background:linear-gradient(90deg,var(--green),var(--green2));width:100%}
+.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:11px}
+.gloss-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.gloss-term{font-family:var(--mono);font-size:12px;color:var(--green);font-weight:600;margin-bottom:5px}
+.gloss-def{font-size:13px;color:var(--muted);line-height:1.5}
+.sdivider{height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent)}
+.risk-warn{background:rgba(255,77,106,.08);border:1px solid rgba(255,77,106,.2);border-radius:8px;padding:14px 18px;color:var(--muted);font-size:12px;line-height:1.6;margin-bottom:28px}
+.risk-warn strong{color:var(--red)}
+footer{padding:55px 5% 35px;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:38px;margin-bottom:38px}
+.f-logo{font-size:1.5rem;font-weight:700;color:var(--green);margin-bottom:11px}
+.f-desc{color:var(--muted);font-size:14px;line-height:1.7}
+.f-head{font-family:var(--mono);font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:13px}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.f-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s}
+.f-links a:hover{color:var(--green)}
+.f-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.f-copy{color:var(--muted);font-size:12px}
+#mobile-nav{display:none;position:fixed;top:64px;left:0;width:100%;background:rgba(5,10,20,.98);border-bottom:1px solid var(--border);padding:18px 5%;z-index:999}
+#mobile-nav.open{display:block}
+#mobile-nav a{display:block;color:var(--muted);text-decoration:none;padding:10px 0;border-bottom:1px solid var(--border)}
+@media(max-width:768px){.hamburger{display:block}.nav-links{display:none}.nav-cta{display:none}.cgrid{grid-template-columns:1fr}.lec-hdr{flex-direction:column;gap:10px}.lec-num{font-size:3rem}.footer-grid{grid-template-columns:1fr}.td-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-logo">FX<span>Learn</span></div>
+<ul class="nav-links">
+<li><a href="#course">Course</a></li>
+<li><a href="#lec-1">Lectures</a></li>
+<li><a href="#glossary">Glossary</a></li>
+</ul>
+<a href="#lec-1" class="nav-cta">Start Learning</a>
+<button class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+</nav>
+<div id="mobile-nav">
+<a href="#course">Course</a><a href="#lec-1">Start Learning</a><a href="#glossary">Glossary</a>
+</div>
+
+<section class="hero">
+<div>
+<div class="hero-badge">LIVE COURSE &nbsp;•&nbsp; 20 LECTURES &nbsp;•&nbsp; BEGINNER TO PRO</div>
+<h1>Learn to Trade<br><span class="hl-g">Forex</span> Like a <span class="hl-gold">Pro</span></h1>
+<p class="hero-sub">A complete, practical forex trading course built on Smart Money Concepts, price action, and professional risk management. Zero fluff. Real strategies that work.</p>
+<div class="hero-stats">
+<div class="stat"><span class="stat-num">20</span><span class="stat-label">Lectures</span></div>
+<div class="stat"><span class="stat-num">$6T</span><span class="stat-label">Daily Volume</span></div>
+<div class="stat"><span class="stat-num">85%</span><span class="stat-label">Max Success Rate</span></div>
+<div class="stat"><span class="stat-num">1:3</span><span class="stat-label">Target R:R</span></div>
+</div>
+<div class="hero-btns">
+<a href="#lec-1" class="btn-p"><i class="fas fa-play"></i> Start Free Course</a>
+<a href="#course" class="btn-o">View All Lectures</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="course">
+<div class="section-label">Full Curriculum</div>
+<h2 class="section-title">20 Professional Lectures</h2>
+<p class="section-sub">Each lecture is self-contained with visual explanations, real trade examples, and a quiz. Build from foundation to professional trader.</p>
+<div class="lec-index">
+<a href="#lec-1" class="idx-card"><div class="idx-num">LECTURE 01</div><div class="idx-title">What Is Forex?</div><div class="idx-desc">Currency pairs, market sessions, buy vs sell. The complete foundation.</div><div class="idx-prob prob-fo">📚 Foundation</div></a>
+<a href="#lec-2" class="idx-card"><div class="idx-num">LECTURE 02</div><div class="idx-title">Candlestick Basics & Market Trends</div><div class="idx-desc">Read any chart. Bullish, bearish candles, and the three trend types.</div><div class="idx-prob prob-hi">✅ 65-75%</div></a>
+<a href="#lec-3" class="idx-card"><div class="idx-num">LECTURE 03</div><div class="idx-title">Support & Resistance</div><div class="idx-desc">The most important concept in trading. Floors, ceilings, role reversals.</div><div class="idx-prob prob-hi">✅ 70-80%</div></a>
+<a href="#lec-4" class="idx-card"><div class="idx-num">LECTURE 04</div><div class="idx-title">Trend & Trendlines</div><div class="idx-desc">Draw trendlines correctly. Trade dynamic support and resistance.</div><div class="idx-prob prob-hi">✅ 70-80%</div></a>
+<a href="#lec-5" class="idx-card"><div class="idx-num">LECTURE 05</div><div class="idx-title">Market Structure — Highs & Lows</div><div class="idx-desc">The backbone of Smart Money Concepts. Who controls the market?</div><div class="idx-prob prob-hi">✅ 70-80%</div></a>
+<a href="#lec-6" class="idx-card"><div class="idx-num">LECTURE 06</div><div class="idx-title">Swing High & Swing Low</div><div class="idx-desc">Liquidity pools, stop hunts, and how smart money moves price.</div><div class="idx-prob prob-hi">✅ 65-75%</div></a>
+<a href="#lec-7" class="idx-card"><div class="idx-num">LECTURE 07</div><div class="idx-title">BoS & ChOCH</div><div class="idx-desc">Break of Structure confirms trends. Change of Character signals reversals.</div><div class="idx-prob prob-hi">✅ 75-85%</div></a>
+<a href="#lec-8" class="idx-card"><div class="idx-num">LECTURE 08</div><div class="idx-title">Double Top & Double Bottom</div><div class="idx-desc">Powerful reversal patterns that form at the end of major trends.</div><div class="idx-prob prob-hi">✅ 70-80%</div></a>
+<a href="#lec-9" class="idx-card"><div class="idx-num">LECTURE 09</div><div class="idx-title">Risk Management</div><div class="idx-desc">The #1 skill. Stop losses, take profits, and capital protection.</div><div class="idx-prob prob-fo">🛡️ Survival Skill</div></a>
+<a href="#lec-10" class="idx-card"><div class="idx-num">LECTURE 10</div><div class="idx-title">Risk to Reward Ratio</div><div class="idx-desc">Why you don't need to win every trade to be consistently profitable.</div><div class="idx-prob prob-fo">📐 Framework</div></a>
+<a href="#lec-11" class="idx-card"><div class="idx-num">LECTURE 11</div><div class="idx-title">Trading Psychology</div><div class="idx-desc">Fear, greed, revenge trading, overconfidence — your real enemies.</div><div class="idx-prob prob-fo">🧠 Mindset</div></a>
+<a href="#lec-12" class="idx-card"><div class="idx-num">LECTURE 12</div><div class="idx-title">Trading Plan</div><div class="idx-desc">Without a plan you are gambling. Build your complete framework.</div><div class="idx-prob prob-fo">📋 Structure</div></a>
+<a href="#lec-13" class="idx-card"><div class="idx-num">LECTURE 13</div><div class="idx-title">Trading Sessions</div><div class="idx-desc">Not all hours are equal. When to trade and when to stay out.</div><div class="idx-prob prob-hi">✅ 70-80%</div></a>
+<a href="#lec-14" class="idx-card"><div class="idx-num">LECTURE 14</div><div class="idx-title">Multi-Timeframe Analysis</div><div class="idx-desc">See the big picture and the precise entry at the same time.</div><div class="idx-prob prob-hi">✅ 75-85%</div></a>
+<a href="#lec-15" class="idx-card"><div class="idx-num">LECTURE 15</div><div class="idx-title">Combining Tools with BoS & ChOCH</div><div class="idx-desc">Stack confirmations for 85-90% probability setups like a professional.</div><div class="idx-prob prob-hi">✅ 80-90%</div></a>
+<a href="#lec-16" class="idx-card"><div class="idx-num">LECTURE 16</div><div class="idx-title">Candlestick Types Deep Dive</div><div class="idx-desc">Doji, spinning tops, engulfing, long candles — every type explained.</div><div class="idx-prob prob-hi">✅ 75-80%</div></a>
+<a href="#lec-17" class="idx-card"><div class="idx-num">LECTURE 17</div><div class="idx-title">Bullish & Bearish Candlestick Patterns</div><div class="idx-desc">Hammer, Shooting Star, Engulfing, Morning Star and 10+ more patterns.</div><div class="idx-prob prob-hi">✅ 75-85%</div></a>
+<a href="#lec-18" class="idx-card"><div class="idx-num">LECTURE 18</div><div class="idx-title">Liquidity & Liquidity Sweeps</div><div class="idx-desc">How smart money grabs stop losses before reversing. The real market mechanic.</div><div class="idx-prob prob-hi">✅ 80-85%</div></a>
+<a href="#lec-19" class="idx-card"><div class="idx-num">LECTURE 19</div><div class="idx-title">Fair Value Gaps (FVG)</div><div class="idx-desc">Price imbalances that act as magnets. Where to find the best entries.</div><div class="idx-prob prob-hi">✅ 78-85%</div></a>
+<a href="#lec-20" class="idx-card"><div class="idx-num">LECTURE 20</div><div class="idx-title">Order Blocks (OB)</div><div class="idx-desc">Where institutions placed their orders. The most powerful entry zones in SMC.</div><div class="idx-prob prob-hi">✅ 80-88%</div></a>
+</div>
+</section>
+<div class="sdivider"></div>
+
+<!-- LECTURE 1 -->
+<section class="lec-sec" id="lec-1">
+<div class="lec-hdr">
+<div class="lec-num">01</div>
+<div>
+<div class="lec-tag">Foundation &nbsp;•&nbsp; 8 min read</div>
+<h2 class="lec-title">What Is Forex?</h2>
+<p class="lec-intro">Welcome to the world of Forex trading. Forex stands for Foreign Exchange Market — the largest financial market on the planet. Every single day, over <strong>$6 trillion</strong> is traded globally. That is more than all the world's stock markets combined. In this lecture you will learn exactly what forex is, how currency pairs work, when the market is open, and how to read your very first chart. By the end, you will have the solid foundation every professional trader needs.</p>
+</div>
+</div>
+<div class="cgrid">
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-coins"></i> What Is Currency Trading?</div>
+<div class="cblock-text">
+<p>When you travel to another country, you exchange your home currency for the local one. That exchange — buying one currency while selling another — is the foundation of forex trading. In trading, we do the same thing but with a profit motive: buy a currency when it is cheap and sell it when it becomes expensive.</p>
+<p>In forex, currencies are <strong>always traded in pairs</strong>. You never buy just one currency on its own. When you buy EUR/USD, you are buying Euros and simultaneously selling US Dollars. The exchange rate between the two tells you how much of the second currency you get for one unit of the first.</p>
+<p><strong>Example:</strong> If EUR/USD is at 1.1000, it means 1 Euro equals 1.10 US Dollars.</p>
+</div>
+</div>
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-list"></i> Major Currency Pairs</div>
+<div class="cblock-text">
+<p>The most traded pairs in the world have the most liquidity, tightest spreads, and most predictable movement:</p>
+<table class="fx-table">
+<tr><th>Pair</th><th>Description</th></tr>
+<tr><td>EUR/USD</td><td>Euro vs Dollar — <span class="hl-g">Most traded in world</span></td></tr>
+<tr><td>GBP/USD</td><td>British Pound vs Dollar</td></tr>
+<tr><td>USD/JPY</td><td>Dollar vs Japanese Yen</td></tr>
+<tr><td>AUD/USD</td><td>Australian Dollar vs Dollar</td></tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cgrid">
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-arrows-alt-v"></i> BUY vs SELL</div>
+<div class="cblock-text">
+<p><strong class="hl-g">BUY (Going Long):</strong> You believe the currency will go UP in value. You buy it now at a low price and sell it later at a higher price to make profit.</p>
+<p><strong class="hl-r">SELL (Going Short):</strong> You believe the currency will go DOWN in value. You sell it now at a high price and buy it back later at a lower price to make profit.</p>
+<p>The beauty of forex is that you can profit in BOTH directions — whether markets rise or fall.</p>
+</div>
+</div>
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-clock"></i> When To Trade</div>
+<div class="cblock-text">
+<p>Forex is open 24 hours a day, 5 days a week. The <strong class="hl-g">London–New York overlap (12:00–16:00 GMT)</strong> is the best time to trade — highest volume, tightest spreads, strongest price moves. For Nigerian traders that is <strong>1PM–5PM local time</strong>.</p>
+</div>
+</div>
+</div>
+<div class="vbox">
+<div class="session-grid">
+<div class="s-card s-syd"><div class="s-name">🌏 Sydney</div><div class="s-time">10PM–7AM GMT</div><div class="s-bar"><div class="s-fill"></div></div><div style="font-size:11px;color:var(--muted);margin-top:6px">Low volatility</div></div>
+<div class="s-card s-tok"><div class="s-name">🗼 Tokyo</div><div class="s-time">12AM–9AM GMT</div><div class="s-bar"><div class="s-fill"></div></div><div style="font-size:11px;color:var(--muted);margin-top:6px">Moderate activity</div></div>
+<div class="s-card s-lon"><div class="s-name">🏛️ London</div><div class="s-time">7AM–4PM GMT</div><div class="s-bar"><div class="s-fill"></div></div><div style="font-size:11px;color:var(--green);margin-top:6px">⭐ Best opportunities</div></div>
+<div class="s-card s-ny"><div class="s-name">🗽 New York</div><div class="s-time">12PM–9PM GMT</div><div class="s-bar"><div class="s-fill"></div></div><div style="font-size:11px;color:var(--green);margin-top:6px">High volume</div></div>
+<div class="s-card s-ov"><div class="s-name">⚡ London-NY Overlap</div><div class="s-time">12PM–4PM GMT | 1PM–5PM Nigeria</div><div class="s-bar"><div class="s-fill"></div></div><div style="font-size:11px;color:var(--green);margin-top:6px">🔥 BEST TIME TO TRADE</div></div>
+</div>
+</div>
+<div class="info-box"><strong>Real Example:</strong> The US economy releases strong job numbers. Traders believe the Dollar will rise. You BUY USD/JPY (buy Dollars, sell Yen). If the Dollar rises, you close the trade and take profit. That is a complete forex trade.</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li>Forex is the world's <strong>largest financial market</strong> — over $6 trillion traded every single day</li>
+<li>Currencies are always traded in <strong>pairs</strong> — buying one means selling the other automatically</li>
+<li><strong>BUY</strong> when you expect price to rise; <strong>SELL</strong> when you expect price to fall</li>
+<li>The <strong>London–New York overlap</strong> (1PM–5PM Nigerian time) is the best window to trade</li>
+<li><strong>Always start on a demo account</strong> — never risk real money before you are ready</li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 1</div>
+<p class="quiz-q">What is the most traded currency pair in the world?</p>
+<button class="quiz-btn" onclick="document.getElementById('q1').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q1"><strong>Answer: EUR/USD.</strong> The Euro vs US Dollar is the most traded pair globally — highest liquidity, tightest spreads, most market participants. It is ideal for beginners because it is the most predictable and widely analysed pair in the world.</div>
+</div>
+</section>
+
+<!-- LECTURE 2 -->
+<section class="lec-sec" id="lec-2">
+<div class="lec-hdr">
+<div class="lec-num">02</div>
+<div>
+<div class="lec-tag">Price Action &nbsp;•&nbsp; 10 min read</div>
+<h2 class="lec-title">Candlestick Basics & Market Trends</h2>
+<p class="lec-intro">Candlesticks are the building blocks of every forex chart. Each candle tells a story — who is winning between buyers and sellers, how strongly they are winning, and where price might go next. Master reading candlesticks and you can analyse any market, any timeframe, anywhere in the world. This is one of the most valuable skills you will ever develop as a trader.</p>
+</div>
+</div>
+<div class="cgrid">
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-chart-bar"></i> Anatomy of a Candlestick</div>
+<div class="cblock-text">
+<p>Each candle shows four key pieces of information for a specific time period (1 minute, 1 hour, 1 day, etc.):</p>
+<table class="fx-table">
+<tr><th>Part</th><th>What It Tells You</th></tr>
+<tr><td>OPEN</td><td>Price at start of period</td></tr>
+<tr><td>HIGH</td><td>Highest price reached</td></tr>
+<tr><td>LOW</td><td>Lowest price reached</td></tr>
+<tr><td>CLOSE</td><td>Price at end of period</td></tr>
+</table>
+<p style="margin-top:10px">The <strong>body</strong> (space between open and close) shows momentum. The <strong>wicks</strong> (lines above/below body) show rejection — how far price tried to go but was pushed back.</p>
+</div>
+</div>
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-balance-scale"></i> Buyers vs Sellers</div>
+<div class="cblock-text">
+<p><strong class="hl-g">Bullish Candle (Green):</strong> Close is HIGHER than Open. Buyers won the battle. They pushed price up and held it there. The longer the body, the stronger the buying pressure.</p>
+<p><strong class="hl-r">Bearish Candle (Red):</strong> Close is LOWER than Open. Sellers won. They pushed price down and held it there. The longer the body, the stronger the selling pressure.</p>
+<p><strong>Long wick:</strong> The other side fought back. A long upper wick means price tried to go high but sellers rejected it. A long lower wick means price tried to go low but buyers rejected it.</p>
+</div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">  BULLISH CANDLE          BEARISH CANDLE         REJECTION CANDLE
+       │ ← HIGH               │ ← HIGH               │ ← HIGH (VERY HIGH)
+  ┌────┴────┐             ┌────┴────┐                │
+  │  GREEN  │  ← CLOSE   │  OPEN → │            ┌───┴───┐  ← small body
+  │  BODY   │             │   RED   │            └───────┘
+  │         │  ← OPEN    │  BODY   │  ← CLOSE       │ ← LOW
+  └────┬────┘             └────┬────┘
+       │ ← LOW                │ ← LOW            Price was rejected DOWN
+  Buyers WON ✅          Sellers WON ✅        Long wick = strong rejection</div>
+</div>
+<div class="cblock" style="margin-bottom:26px">
+<div class="cblock-title"><i class="fas fa-chart-line"></i> The Three Market Trends</div>
+<div class="cblock-text">
+<table class="fx-table">
+<tr><th>Trend</th><th>Structure</th><th>Action</th></tr>
+<tr><td><span class="hl-g">Uptrend (Bullish)</span></td><td>Higher Highs (HH) + Higher Lows (HL)</td><td>Look for BUY trades</td></tr>
+<tr><td><span class="hl-r">Downtrend (Bearish)</span></td><td>Lower Highs (LH) + Lower Lows (LL)</td><td>Look for SELL trades</td></tr>
+<tr><td><span class="hl-gold">Sideways (Range)</span></td><td>No clear direction, price boxes</td><td>Wait for breakout</td></tr>
+</table>
+<div class="warn-box" style="margin-top:14px"><strong>The Golden Rule:</strong> "The trend is your friend." Never trade against the direction the market is moving. Trading with the trend dramatically increases your probability of success on every trade.</div>
+</div>
+</div>
+<div class="ta ta-buy">
+<div class="ta-hdr"><span class="badge-buy">BUY — UPTREND</span><span>Trading with a Bullish Trend</span></div>
+<div class="steps">
+<div class="step"><div class="step-n">1</div><div class="step-t">Wait for price to <strong>pull back</strong> to a support level within the uptrend</div></div>
+<div class="step"><div class="step-n">2</div><div class="step-t">Look for a <strong>bullish confirmation candle</strong> (green candle, engulfing pattern)</div></div>
+<div class="step"><div class="step-n">3</div><div class="step-t">Enter <strong>BUY</strong> on the next candle after confirmation</div></div>
+<div class="step"><div class="step-n">4</div><div class="step-t">Place <strong>Stop Loss below</strong> the recent swing low</div></div>
+<div class="step"><div class="step-n">5</div><div class="step-t">Take <strong>Profit at the next resistance level</strong> above entry</div></div>
+</div>
+</div>
+<div class="scenario">
+<div class="scenario-hdr"><div class="sc-badge">EXAMPLE TRADE</div><div class="sc-title">EUR/USD — Uptrend Entry</div></div>
+<p style="color:var(--muted);font-size:14px">EUR/USD is in a clear uptrend (Higher Highs and Higher Lows). Price pulls back to support at 1.1000 and forms a bullish engulfing candle — a strong buyer signal.</p>
+<div class="td-grid">
+<div class="td-item"><div class="td-lbl">Entry</div><div class="td-val td-neu">1.1005</div></div>
+<div class="td-item"><div class="td-lbl">Stop Loss</div><div class="td-val td-sell">1.0980</div></div>
+<div class="td-item"><div class="td-lbl">Take Profit</div><div class="td-val td-buy">1.1050</div></div>
+<div class="td-item"><div class="td-lbl">Risk</div><div class="td-val td-sell">25 pips</div></div>
+<div class="td-item"><div class="td-lbl">Reward</div><div class="td-val td-buy">45 pips</div></div>
+<div class="td-item"><div class="td-lbl">R:R Ratio</div><div class="td-val td-gold">1:1.8</div></div>
+</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Success Probability</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">Trading WITH the trend</span><div class="prob-track"><div class="prob-fill f-hi" style="width:70%"></div></div><span class="prob-pct hl-g">65-75%</span></div>
+<div class="prob-row"><span class="prob-lbl">Trading AGAINST the trend</span><div class="prob-track"><div class="prob-fill f-lo" style="width:35%"></div></div><span class="prob-pct hl-r">30-40%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li>Candlesticks show the <strong>battle between buyers and sellers</strong> on every single bar</li>
+<li><strong>Bullish = buyers won</strong> (green); <strong>Bearish = sellers won</strong> (red)</li>
+<li><strong>Long body = strong momentum;</strong> Long wick = rejection at that extreme</li>
+<li>Trade <strong>in the direction of the trend</strong> — never fight the market</li>
+<li>Wait for <strong>confirmation candles</strong> before entering — never guess</li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 2</div>
+<p class="quiz-q">What does a long upper wick on a candle tell you about market sentiment?</p>
+<button class="quiz-btn" onclick="document.getElementById('q2').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q2"><strong>Answer: Rejection.</strong> A long upper wick means price tried to go higher but sellers pushed it back down strongly. The longer the wick, the stronger the rejection signal. This often appears at resistance levels and signals a potential reversal downward.</div>
+</div>
+</section>
+
+<!-- LECTURE 3 -->
+<section class="lec-sec" id="lec-3">
+<div class="lec-hdr">
+<div class="lec-num">03</div>
+<div>
+<div class="lec-tag">Core Concept &nbsp;•&nbsp; 10 min read</div>
+<h2 class="lec-title">Support & Resistance</h2>
+<p class="lec-intro">Support and Resistance are the most important concepts in all of trading. These are price levels where the market has historically reacted — either bouncing up (support) or falling down (resistance). Think of Support as a <strong class="hl-g">floor</strong> beneath price that holds it up, and Resistance as a <strong class="hl-r">ceiling</strong> above price that pushes it back down. Once you master these two ideas, you will have a lifelong edge in every market you ever trade.</p>
+</div>
+</div>
+<div class="cgrid">
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-level-down-alt"></i> What Is Support?</div>
+<div class="cblock-text"><p>Support is a price level where <strong>buyers are strong enough to stop price from falling further</strong>. When price approaches support, buyers step in aggressively and push price back up. The more times price has bounced off a support level, the stronger and more reliable that level becomes — because more traders are watching it and reacting to it.</p><p>Think of it as a floor beneath the market. Price falls, hits the floor, and bounces back up. Every time it bounces, that floor gets reinforced in traders' minds.</p></div>
+</div>
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-level-up-alt"></i> What Is Resistance?</div>
+<div class="cblock-text"><p>Resistance is a price level where <strong>sellers are strong enough to stop price from rising further</strong>. When price approaches resistance, sellers step in and push price back down. The more times price has been rejected at a resistance level, the more powerful that level becomes.</p><p>Think of it as a ceiling above the market. Price rises, hits the ceiling, and falls back down. Every time it gets rejected, that ceiling becomes stronger.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">RESISTANCE ────────────────────────────────────── (ceiling)
+                ↑ rejected    ↑ rejected again    ↑ rejected
+                              (even stronger now)
+
+    Price ↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕↕
+
+                ↓ bounces     ↓ bounces again      ↓ bounces
+                              (even stronger now)
+SUPPORT ────────────────────────────────────────── (floor)
+
+ROLE REVERSAL: When Support BREAKS → it becomes Resistance
+               When Resistance BREAKS → it becomes Support</div>
+</div>
+<div class="cgrid">
+<div class="ta ta-buy">
+<div class="ta-hdr"><span class="badge-buy">BUY AT SUPPORT</span></div>
+<div class="steps">
+<div class="step"><div class="step-n">1</div><div class="step-t">Price approaches a <strong>known support level</strong></div></div>
+<div class="step"><div class="step-n">2</div><div class="step-t">Wait for <strong>bullish rejection candle</strong> (pinbar, engulfing)</div></div>
+<div class="step"><div class="step-n">3</div><div class="step-t">Enter <strong>BUY</strong> after confirmation candle closes</div></div>
+<div class="step"><div class="step-n">4</div><div class="step-t">Stop Loss <strong>below support level</strong></div></div>
+<div class="step"><div class="step-n">5</div><div class="step-t">Take Profit at <strong>next resistance level</strong></div></div>
+</div>
+</div>
+<div class="ta ta-sell">
+<div class="ta-hdr"><span class="badge-sell">SELL AT RESISTANCE</span></div>
+<div class="steps">
+<div class="step"><div class="step-n">1</div><div class="step-t">Price approaches a <strong>known resistance level</strong></div></div>
+<div class="step"><div class="step-n">2</div><div class="step-t">Wait for <strong>bearish rejection candle</strong> (shooting star, engulfing)</div></div>
+<div class="step"><div class="step-n">3</div><div class="step-t">Enter <strong>SELL</strong> after confirmation candle closes</div></div>
+<div class="step"><div class="step-n">4</div><div class="step-t">Stop Loss <strong>above resistance level</strong></div></div>
+<div class="step"><div class="step-n">5</div><div class="step-t">Take Profit at <strong>next support level</strong></div></div>
+</div>
+</div>
+</div>
+<div class="scenario">
+<div class="scenario-hdr"><div class="sc-badge">EXAMPLE TRADE</div><div class="sc-title">EUR/USD — BUY at Strong Support (4 touches)</div></div>
+<p style="color:var(--muted);font-size:14px">EUR/USD approaches a strong support at 1.0950 tested 4 times before. A bullish pinbar (long lower wick) forms — strong rejection and buyer signal.</p>
+<div class="td-grid">
+<div class="td-item"><div class="td-lbl">Support Level</div><div class="td-val td-buy">1.0950</div></div>
+<div class="td-item"><div class="td-lbl">Entry</div><div class="td-val td-neu">1.0955</div></div>
+<div class="td-item"><div class="td-lbl">Stop Loss</div><div class="td-val td-sell">1.0930</div></div>
+<div class="td-item"><div class="td-lbl">Take Profit</div><div class="td-val td-buy">1.1000</div></div>
+<div class="td-item"><div class="td-lbl">Risk</div><div class="td-val td-sell">20 pips</div></div>
+<div class="td-item"><div class="td-lbl">R:R Ratio</div><div class="td-val td-gold">1:2.25</div></div>
+</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Success Probability by Level Strength</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">Strong level (4+ touches)</span><div class="prob-track"><div class="prob-fill f-hi" style="width:75%"></div></div><span class="prob-pct hl-g">70-80%</span></div>
+<div class="prob-row"><span class="prob-lbl">Moderate level (2-3 touches)</span><div class="prob-track"><div class="prob-fill f-md" style="width:65%"></div></div><span class="prob-pct hl-gold">60-70%</span></div>
+<div class="prob-row"><span class="prob-lbl">Weak level (1 touch)</span><div class="prob-track"><div class="prob-fill f-lo" style="width:50%"></div></div><span class="prob-pct hl-r">50-60%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Support = floor</strong> where buyers step in; <strong>Resistance = ceiling</strong> where sellers step in</li>
+<li><strong>More touches = stronger level.</strong> 4 tested touches is far more reliable than 1</li>
+<li><strong>Broken support becomes resistance</strong> and vice versa — called role reversal or the "flip"</li>
+<li><strong>Always wait for confirmation</strong> — a rejection candle, not just price touching the zone</li>
+<li>Strong S&R levels are the foundation of <strong>every professional trading strategy</strong></li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 3</div>
+<p class="quiz-q">What happens to a support level when price breaks through it?</p>
+<button class="quiz-btn" onclick="document.getElementById('q3').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q3"><strong>Answer: Role Reversal (The Flip).</strong> When support breaks, price continues downward. Then that old support level now acts as resistance — if price returns to it from below, sellers will push it back down. This is called role reversal and is one of the most reliable patterns in all of forex trading.</div>
+</div>
+</section>
+
+<!-- LECTURE 4 -->
+<section class="lec-sec" id="lec-4">
+<div class="lec-hdr">
+<div class="lec-num">04</div>
+<div>
+<div class="lec-tag">Price Action &nbsp;•&nbsp; 9 min read</div>
+<h2 class="lec-title">Trend & Trendlines</h2>
+<p class="lec-intro">Trendlines help you visualise the direction and strength of a market trend. Unlike horizontal Support and Resistance levels that stay fixed at one price, trendlines are <strong>dynamic</strong> — they move with price and act as moving support or resistance, slanting either up or down. Drawing trendlines correctly is a foundational skill every trader must master before looking for entries.</p>
+</div>
+</div>
+<div class="cgrid">
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-chart-line"></i> Uptrend Line (Dynamic Support)</div>
+<div class="cblock-text"><p>Drawn <strong>below price</strong>, connecting at least two Higher Lows. Acts as a moving floor beneath price. When price pulls back to the trendline in an uptrend, buyers step in and push it back up. The more times price bounces off the line, the stronger it becomes. You connect the candle wick lows, not the bodies.</p></div>
+</div>
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-chart-line" style="transform:scaleY(-1);display:inline-block"></i> Downtrend Line (Dynamic Resistance)</div>
+<div class="cblock-text"><p>Drawn <strong>above price</strong>, connecting at least two Lower Highs. Acts as a moving ceiling above price. When price pulls back up to the trendline in a downtrend, sellers step in and push it back down. A break above a downtrend line can signal a potential trend change.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">UPTREND LINE:                          DOWNTREND LINE:
+                                        ────────────────┐ LH
+  Price      /\    /\                              LH ─┘
+          /  \  /  \                           /
+        /    \/    \                       /  LH
+      /              \        Price ──── /
+    TRENDLINE (below) ────              /
+                                   TRENDLINE (above) ────
+Trade: BUY at trendline touch     Trade: SELL at trendline touch
+SL: Below trendline               SL: Above trendline
+TP: Next resistance               TP: Next support</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Success Probability by Trendline Strength</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">Strong trendline (4+ touches)</span><div class="prob-track"><div class="prob-fill f-hi" style="width:75%"></div></div><span class="prob-pct hl-g">70-80%</span></div>
+<div class="prob-row"><span class="prob-lbl">Moderate trendline (2-3 touches)</span><div class="prob-track"><div class="prob-fill f-md" style="width:65%"></div></div><span class="prob-pct hl-gold">60-70%</span></div>
+<div class="prob-row"><span class="prob-lbl">Weak trendline (1-2 touches)</span><div class="prob-track"><div class="prob-fill f-lo" style="width:50%"></div></div><span class="prob-pct hl-r">50-60%</span></div>
+</div>
+</div>
+<div class="scenario">
+<div class="scenario-hdr"><div class="sc-badge">EXAMPLE TRADE</div><div class="sc-title">EUR/USD — BUY at Uptrend Line</div></div>
+<p style="color:var(--muted);font-size:14px">EUR/USD has been in an uptrend for two weeks. Price pulls back to the trendline at 1.1050. A bullish hammer forms — entry confirmed.</p>
+<div class="td-grid">
+<div class="td-item"><div class="td-lbl">Entry</div><div class="td-val td-neu">1.1055</div></div>
+<div class="td-item"><div class="td-lbl">Stop Loss</div><div class="td-val td-sell">1.1030</div></div>
+<div class="td-item"><div class="td-lbl">Take Profit</div><div class="td-val td-buy">1.1100</div></div>
+<div class="td-item"><div class="td-lbl">Risk</div><div class="td-val td-sell">25 pips</div></div>
+<div class="td-item"><div class="td-lbl">R:R</div><div class="td-val td-gold">1:1.8</div></div>
+<div class="td-item"><div class="td-lbl">Probability</div><div class="td-val td-buy">72%</div></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Uptrend line = dynamic support</strong> — draw below price connecting Higher Lows</li>
+<li><strong>Downtrend line = dynamic resistance</strong> — draw above price connecting Lower Highs</li>
+<li><strong>More touches = stronger trendline.</strong> 4 or more touches makes it very reliable</li>
+<li><strong>Break of trendline = possible trend change.</strong> Wait for confirmation — don't trade the break blindly</li>
+<li>Always trade <strong>in the direction of the trendline</strong>, never against it</li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 4</div>
+<p class="quiz-q">How many touches are needed for a trendline to be considered strong and highly reliable?</p>
+<button class="quiz-btn" onclick="document.getElementById('q4').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q4"><strong>Answer: At least 4 touches.</strong> Two touches create the line. Four or more touches make it a high-probability zone that many traders watch and react to. The more touches, the stronger the level becomes in the market's collective memory.</div>
+</div>
+</section>
+
+<!-- LECTURE 5 -->
+<section class="lec-sec" id="lec-5">
+<div class="lec-hdr">
+<div class="lec-num">05</div>
+<div>
+<div class="lec-tag">Smart Money Concepts &nbsp;•&nbsp; 11 min read</div>
+<h2 class="lec-title">Market Structure — Highs & Lows</h2>
+<p class="lec-intro">Market structure is the backbone of Smart Money Concepts. It answers the most important question in trading: <strong>who is in control right now — buyers or sellers?</strong> Everything in professional trading begins here. Before looking for entries, before drawing trendlines, before anything else — you identify the structure. Get this right and every other decision becomes dramatically clearer.</p>
+</div>
+</div>
+<div class="cgrid">
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-arrow-up"></i> Bullish Structure — Buyers In Control</div>
+<div class="cblock-text"><p>When the market is making <strong class="hl-g">Higher Highs (HH)</strong> and <strong class="hl-g">Higher Lows (HL)</strong>, buyers are in full control. Each peak is higher than the last, and each trough is also higher. This is the cleanest and safest environment to look for BUY trades — you are trading WITH the dominant force.</p><p>The uptrend remains intact as long as the most recent Higher Low holds. The moment a Higher Low is broken — that is your first warning sign that buyers may be losing control.</p></div>
+</div>
+<div class="cblock">
+<div class="cblock-title"><i class="fas fa-arrow-down"></i> Bearish Structure — Sellers In Control</div>
+<div class="cblock-text"><p>When the market is making <strong class="hl-r">Lower Highs (LH)</strong> and <strong class="hl-r">Lower Lows (LL)</strong>, sellers are in full control. Each peak is lower than the last, and each trough is also lower. This is the environment to look for SELL trades.</p><p>The downtrend remains intact as long as the most recent Lower High holds. A Lower High being broken to the upside is your first signal that sellers may be losing control — a potential reversal is building.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">BULLISH STRUCTURE (Uptrend):         BEARISH STRUCTURE (Downtrend):
+
+           HH                            LH
+         /    \    HH                 /     \   LH
+       /        \/    \             /         \/         /     HH       HL             /      LL               /     /     HL                /       /       LL        HL   HL                    LH LH                   LL
+
+Each HH higher than last ✓          Each LH lower than last ✓
+Each HL higher than last ✓          Each LL lower than last ✓
+→ LOOK FOR BUY TRADES               → LOOK FOR SELL TRADES</div>
+</div>
+<div class="info-box"><strong>Critical Rule:</strong> Never trade against the market structure. If structure is bullish (HH + HL), only look for BUY setups. If structure is bearish (LH + LL), only look for SELL setups. Trading against structure is the #1 cause of avoidable losses for beginner traders.</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>HH + HL = Bullish</strong> — buyers in control, look for BUY trades only</li>
+<li><strong>LH + LL = Bearish</strong> — sellers in control, look for SELL trades only</li>
+<li>Structure analysis is the <strong>first step</strong> before any entry evaluation</li>
+<li><strong>Never fight the structure</strong> — you are one small trader against the entire market</li>
+<li>A broken Higher Low in an uptrend is your <strong>first warning</strong> the trend may be changing</li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 5</div>
+<p class="quiz-q">EUR/USD is making Lower Highs and Lower Lows. What type of structure is this and what should you trade?</p>
+<button class="quiz-btn" onclick="document.getElementById('q5').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q5"><strong>Answer: Bearish Structure (Downtrend).</strong> LH + LL = Sellers in control. You should only look for SELL setups in this environment. Looking for BUY trades against this structure means fighting the dominant force — a low-probability, high-risk approach that experienced traders always avoid.</div>
+</div>
+</section>
+
+<!-- LECTURE 6 -->
+<section class="lec-sec" id="lec-6">
+<div class="lec-hdr"><div class="lec-num">06</div><div>
+<div class="lec-tag">Smart Money Concepts &nbsp;• 10 min read</div>
+<h2 class="lec-title">Swing High & Swing Low</h2>
+<p class="lec-intro">Swing Highs and Swing Lows are specific price points that act as <strong>liquidity pools</strong>. These are places where stop losses and pending orders accumulate. Smart Money — banks, hedge funds, and institutional traders — deliberately targets these levels to collect liquidity before making their real moves. Understanding this single concept gives you a huge edge over the average retail trader.</p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-mountain"></i> Swing High</div>
+<div class="cblock-text"><p>A Swing High is a peak that is <strong>higher than the highs on both its left and right sides</strong>. It forms where buyers pushed price up but ran out of strength. Above every Swing High, there is accumulated liquidity — stop losses from short sellers, and buy orders from breakout traders waiting above the high.</p><p>Smart Money sweeps these levels to grab that liquidity before reversing price downward. This is why you often see sharp fake breakouts above highs followed by immediate reversals.</p></div>
+</div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-water"></i> Swing Low</div>
+<div class="cblock-text"><p>A Swing Low is a trough that is <strong>lower than the lows on both its left and right sides</strong>. It forms where sellers pushed price down but ran out of strength. Below every Swing Low, there is accumulated liquidity — stop losses from long traders, and sell orders from breakout traders waiting below the low.</p><p>Smart Money sweeps these levels to grab liquidity before reversing price upward. This is the engine behind most major market reversals you will ever see.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">SWING HIGH SWEEP PATTERN (SELL SETUP):
+
+1. Swing High forms at 1.1100
+   ← Stop losses and buy orders sit above: ████████████████
+
+2. Price pulls back, then SWEEPS the high:
+   → Breaks above 1.1100 briefly → liquidity collected
+
+3. Price REVERSES DOWN immediately after sweep
+   → Smart Money took their liquidity, now they sell
+
+PATTERN: Form → Accumulate → Sweep → Reverse ← TRADE HERE
+
+SWING LOW SWEEP PATTERN (BUY SETUP):
+Same process in reverse — sweep below the low, then BUY</div>
+</div>
+<div class="ta ta-sell">
+<div class="ta-hdr"><span class="badge-sell">SELL — AFTER SWING HIGH SWEEP</span></div>
+<div class="steps">
+<div class="step"><div class="step-n">1</div><div class="step-t">Identify a clear <strong>Swing High</strong> on your chart</div></div>
+<div class="step"><div class="step-n">2</div><div class="step-t">Wait for price to <strong>break above</strong> the Swing High (the sweep)</div></div>
+<div class="step"><div class="step-n">3</div><div class="step-t">Look for a <strong>bearish rejection candle</strong> immediately after the sweep</div></div>
+<div class="step"><div class="step-n">4</div><div class="step-t">Enter <strong>SELL</strong> on confirmation</div></div>
+<div class="step"><div class="step-n">5</div><div class="step-t">Stop Loss <strong>above the swept high;</strong> Take Profit at next support</div></div>
+</div>
+</div>
+<div class="scenario">
+<div class="scenario-hdr"><div class="sc-badge">EXAMPLE TRADE</div><div class="sc-title">EUR/USD — SELL after Swing High Sweep</div></div>
+<div class="td-grid">
+<div class="td-item"><div class="td-lbl">Swing High</div><div class="td-val td-neu">1.1100</div></div>
+<div class="td-item"><div class="td-lbl">Entry (SELL)</div><div class="td-val td-sell">1.1105</div></div>
+<div class="td-item"><div class="td-lbl">Stop Loss</div><div class="td-val td-sell">1.1120</div></div>
+<div class="td-item"><div class="td-lbl">Take Profit</div><div class="td-val td-buy">1.1050</div></div>
+<div class="td-item"><div class="td-lbl">Risk</div><div class="td-val td-sell">15 pips</div></div>
+<div class="td-item"><div class="td-lbl">R:R Ratio</div><div class="td-val td-gold">1:3.6 ✅</div></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Swing High = liquidity above price</strong> — potential SELL zone after sweep</li>
+<li><strong>Swing Low = liquidity below price</strong> — potential BUY zone after sweep</li>
+<li>Price <strong>sweeps these levels to collect stop losses</strong> before reversing</li>
+<li>After the sweep, <strong>wait for reversal confirmation</strong> — don't enter during the sweep</li>
+<li>This pattern gives excellent R:R ratios because <strong>stops are tight and targets are far</strong></li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 6</div>
+<p class="quiz-q">Why does price often reverse sharply after sweeping a Swing High?</p>
+<button class="quiz-btn" onclick="document.getElementById('q6').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q6"><strong>Answer: Liquidity collection.</strong> Above every Swing High, stop losses and buy orders accumulate. When price sweeps above the high, those orders are triggered — Smart Money uses this moment to fill their large sell positions. Once they have collected the liquidity they need, they push price sharply downward.</div>
+</div>
+</section>
+
+<!-- LECTURE 7 -->
+<section class="lec-sec" id="lec-7">
+<div class="lec-hdr"><div class="lec-num">07</div><div>
+<div class="lec-tag">Smart Money Concepts &nbsp;• 12 min read</div>
+<h2 class="lec-title">Break of Structure (BoS) & Change of Character (ChOCH)</h2>
+<p class="lec-intro">BoS and ChOCH are two of the most powerful tools in Smart Money Concepts. They eliminate guessing — instead of hoping the market moves your way, you <strong>wait for the market to confirm its own intention</strong> before entering. BoS says the trend is continuing. ChOCH warns the trend may be turning. Together, they tell you when to stay and when to prepare for something new.</p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-arrows-alt-v"></i> Break of Structure (BoS)</div>
+<div class="cblock-text"><p><strong>BoS occurs when price breaks a key level in the same direction as the current trend.</strong> It confirms the trend is healthy and likely to continue. In a downtrend, price breaks below the most recent Low — that is a Bearish BoS. In an uptrend, price breaks above the most recent High — that is a Bullish BoS.</p><p>BoS is a continuation signal. After BoS, you wait for price to retest the broken level before entering in the direction of the trend.</p></div>
+</div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-exchange-alt"></i> Change of Character (ChOCH)</div>
+<div class="cblock-text"><p><strong>ChOCH occurs when price breaks a key level in the OPPOSITE direction to the current trend.</strong> In a downtrend, price breaks above a recent High — Bullish ChOCH. The downtrend may be ending.</p><p><strong>Critical:</strong> ChOCH is a WARNING, not an entry signal. Do not enter immediately. Wait for additional confirmation — a pullback, a retest, a candlestick pattern. Many traders lose money by entering on ChOCH without confirmation.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">BEARISH BoS (Trend Continues DOWN):    BULLISH ChOCH (Reversal Warning):
+
+  LH                                      ┌─── ChOCH! Break ABOVE LH
+  │   LH                                  │
+  │   │   LH                    LH ───┐   │
+  │   │   │                     │     │   │
+  LL──┘   │   ← BoS here        │   LL│   │
+          LL (price breaks lower)│   │ │   │
+          ↓                     LL──┘ │   │
+        trend continues DOWN          └───┘ ← now watch for BUY setup</div>
+</div>
+<div class="cgrid">
+<div class="ta ta-sell">
+<div class="ta-hdr"><span class="badge-sell">BoS — CONTINUATION TRADE</span></div>
+<div class="steps">
+<div class="step"><div class="step-n">1</div><div class="step-t">Identify <strong>current trend direction</strong></div></div>
+<div class="step"><div class="step-n">2</div><div class="step-t">Wait for <strong>BoS</strong> (break in trend direction)</div></div>
+<div class="step"><div class="step-n">3</div><div class="step-t">Wait for <strong>retest of broken level</strong></div></div>
+<div class="step"><div class="step-n">4</div><div class="step-t">Enter <strong>in trend direction</strong> on confirmation</div></div>
+<div class="step"><div class="step-n">5</div><div class="step-t">SL beyond broken level; TP at next key level</div></div>
+</div>
+</div>
+<div class="ta ta-buy">
+<div class="ta-hdr"><span class="badge-buy">ChOCH — REVERSAL TRADE</span></div>
+<div class="steps">
+<div class="step"><div class="step-n">1</div><div class="step-t">Identify <strong>ChOCH</strong> (break against the trend)</div></div>
+<div class="step"><div class="step-n">2</div><div class="step-t"><strong>Do NOT enter immediately</strong> — this is just a warning</div></div>
+<div class="step"><div class="step-n">3</div><div class="step-t">Wait for <strong>pullback and retest</strong> of broken level</div></div>
+<div class="step"><div class="step-n">4</div><div class="step-t">Enter <strong>in the new direction</strong> on confirmation candle</div></div>
+<div class="step"><div class="step-n">5</div><div class="step-t">SL beyond ChOCH level; TP at next key level</div></div>
+</div>
+</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Success Probability</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">BoS + retest confirmation</span><div class="prob-track"><div class="prob-fill f-hi" style="width:80%"></div></div><span class="prob-pct hl-g">75-85%</span></div>
+<div class="prob-row"><span class="prob-lbl">BoS alone (no retest)</span><div class="prob-track"><div class="prob-fill f-md" style="width:65%"></div></div><span class="prob-pct hl-gold">60-70%</span></div>
+<div class="prob-row"><span class="prob-lbl">ChOCH + confirmation</span><div class="prob-track"><div class="prob-fill f-hi" style="width:70%"></div></div><span class="prob-pct hl-g">65-75%</span></div>
+<div class="prob-row"><span class="prob-lbl">ChOCH alone</span><div class="prob-track"><div class="prob-fill f-lo" style="width:55%"></div></div><span class="prob-pct hl-r">50-60%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>BoS = trend continues</strong> — price breaks in the SAME direction as the trend</li>
+<li><strong>ChOCH = possible reversal</strong> — price breaks in the OPPOSITE direction</li>
+<li>ChOCH is a <strong>warning signal, NOT an entry signal</strong> — always wait for confirmation</li>
+<li>Best entries come from <strong>waiting for a retest</strong> of the broken level after BoS or ChOCH</li>
+<li>Combine with <strong>Support/Resistance, FVG, and Order Blocks</strong> for even higher probability</li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 7</div>
+<p class="quiz-q">What is the key difference between a BoS and a ChOCH?</p>
+<button class="quiz-btn" onclick="document.getElementById('q7').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q7"><strong>Answer:</strong> BoS (Break of Structure) confirms the current trend is CONTINUING — price breaks in the same direction. ChOCH (Change of Character) signals the trend may be REVERSING — price breaks in the opposite direction. BoS = continuation. ChOCH = potential reversal (confirmation required before entering).</div>
+</div>
+</section>
+
+<!-- LECTURE 8 -->
+<section class="lec-sec" id="lec-8">
+<div class="lec-hdr"><div class="lec-num">08</div><div>
+<div class="lec-tag">Chart Patterns &nbsp;• 10 min read</div>
+<h2 class="lec-title">Double Top & Double Bottom</h2>
+<p class="lec-intro">Double Top and Double Bottom are two of the most reliable reversal patterns in technical analysis. They form at the end of major trends and signal that the market is exhausted — buyers or sellers have tried twice to push further and both times failed. When you spot these patterns and wait for proper confirmation, they offer high-probability, clearly defined setups with excellent risk-to-reward ratios.</p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-sort-amount-up"></i> Double Bottom (Bullish Reversal)</div>
+<div class="cblock-text"><p>A Double Bottom forms at the end of a <strong>downtrend</strong>. Price makes two equal lows at the same support zone — sellers tried twice to break lower but both times buyers stepped in. This shows sellers are exhausted and buyers are gaining strength.</p><p><strong>The Neckline:</strong> The resistance level between the two lows. When price breaks ABOVE the neckline, the reversal is confirmed and that is your BUY signal. Wait for a retest of the neckline before entering for the highest probability.</p></div>
+</div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-sort-amount-down"></i> Double Top (Bearish Reversal)</div>
+<div class="cblock-text"><p>A Double Top forms at the end of an <strong>uptrend</strong>. Price makes two equal highs at the same resistance zone — buyers tried twice to break higher but both times sellers pushed back. This shows buyers are exhausted and sellers are gaining control.</p><p><strong>The Neckline:</strong> The support level between the two highs. When price breaks BELOW the neckline, the reversal is confirmed — that is your SELL signal. Wait for a retest before entering.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">DOUBLE BOTTOM (BUY):              DOUBLE TOP (SELL):
+
+              NECKLINE ─────────           Top    Top
+   /\      /                            ─────┬──┬─────  NECKLINE
+  /  \    /                                  │  │
+ /    \  /  ← two equal lows              │  │
+/  Low  Low                             break BELOW = SELL
+       ↑
+  break ABOVE neckline = BUY
+  retest neckline = optimal entry</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Success Probability</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">With neckline break + retest</span><div class="prob-track"><div class="prob-fill f-hi" style="width:75%"></div></div><span class="prob-pct hl-g">70-80%</span></div>
+<div class="prob-row"><span class="prob-lbl">Without waiting for retest</span><div class="prob-track"><div class="prob-fill f-md" style="width:55%"></div></div><span class="prob-pct hl-gold">50-60%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Double Bottom = Bullish reversal</strong> — two equal lows, break above neckline = BUY</li>
+<li><strong>Double Top = Bearish reversal</strong> — two equal highs, break below neckline = SELL</li>
+<li>Always wait for the <strong>neckline to break AND retest</strong> before entering</li>
+<li>Measure target as the <strong>height of the pattern</strong> projected from the neckline</li>
+<li>Combine with <strong>BoS, Support/Resistance</strong> for higher probability setups</li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 8</div>
+<p class="quiz-q">What is the confirmed entry signal for a Double Bottom pattern?</p>
+<button class="quiz-btn" onclick="document.getElementById('q8').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q8"><strong>Answer: Breakout above the neckline AND a retest.</strong> Simply seeing two equal lows is not enough. You must wait for price to break above the neckline (confirming buyers have taken control) and then ideally retest the neckline as new support before entering BUY.</div>
+</div>
+</section>
+
+<!-- LECTURE 9 -->
+<section class="lec-sec" id="lec-9">
+<div class="lec-hdr"><div class="lec-num">09</div><div>
+<div class="lec-tag">⚠️ Most Important Lecture &nbsp;• Survival Skill</div>
+<h2 class="lec-title">Risk Management</h2>
+<p class="lec-intro">Risk management is the single most important skill in trading. It is more important than any setup, more important than any indicator, more important than any strategy. Without risk management, even the best strategy will eventually blow your account. <strong>A good trader focuses on managing risk — not chasing profits.</strong> Profits are the natural result of consistent risk management over time.</p>
+</div></div>
+<div class="warn-box"><strong>⚠️ The Hard Truth:</strong> Most traders who lose money do not lose because of bad strategies. They lose because of bad risk management. One single trade without a stop loss can wipe out months of profits in seconds.</div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-shield-alt"></i> The Stop Loss</div>
+<div class="cblock-text"><p>A Stop Loss is a predetermined price level where your trade automatically closes if the market goes against you. It is the most important tool in your entire trading arsenal — not because it helps you win, but because it limits how much you can lose.</p><p><strong>It is non-negotiable.</strong> Every single trade you ever place must have a stop loss without exception. Place it at a logical level — below support for BUY trades, above resistance for SELL trades. Never place it at a random number.</p></div>
+</div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-percentage"></i> The 1-2% Rule</div>
+<div class="cblock-text"><p>Professional traders never risk more than <strong>1-2% of their total account balance on any single trade</strong>. This is the golden rule that keeps professionals in the game.</p><p>With a $1,000 account:<br>• 1% risk = max $10 loss per trade<br>• If stop loss is 20 pips away: $10 ÷ 20 = $0.50 per pip<br>• Position size = 0.05 lots<br><br>Even 10 losing trades in a row costs only 10% of account — fully recoverable.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">RISK MANAGEMENT VISUAL ($1,000 account, 1% risk):
+
+   TAKE PROFIT ████████████████ → $20 reward (2% of account)
+         |
+         |  ← GREEN ZONE (potential profit)
+         |
+   ENTRY ────────────────────── → Your entry price
+         |
+         |  ← RED ZONE (protected risk)
+         |
+   STOP LOSS ███████████████████ → $10 max loss (1% of account)
+
+Always set BOTH levels BEFORE entering the trade.
+NEVER move stop loss further away to avoid a loss — that destroys risk management.</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> The 5 Rules of Risk Management</div>
+<ul class="tk-list">
+<li><strong>Risk 1-2% per trade</strong> — never more than 2% of total account on any single trade</li>
+<li><strong>Always use a Stop Loss</strong> — every trade, every time, zero exceptions</li>
+<li><strong>Always use a Take Profit</strong> — set it before you enter, then let it run</li>
+<li><strong>Do not overtrade</strong> — 1-3 quality trades per day beats 20 random ones</li>
+<li><strong>Never revenge trade</strong> — after a loss, walk away. Come back with a clear head</li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 9</div>
+<p class="quiz-q">You have a $2,000 account and follow the 1% rule. What is your maximum loss per trade?</p>
+<button class="quiz-btn" onclick="document.getElementById('q9').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q9"><strong>Answer: $20.</strong> 1% of $2,000 = $20. This means you size your position so that if your stop loss is hit, you lose no more than $20. For example, if your stop loss is 20 pips away: $20 ÷ 20 = $1 per pip → position size of 0.10 lots.</div>
+</div>
+</section>
+
+<!-- LECTURE 10 -->
+<section class="lec-sec" id="lec-10">
+<div class="lec-hdr"><div class="lec-num">10</div><div>
+<div class="lec-tag">Trading Mathematics &nbsp;• 8 min read</div>
+<h2 class="lec-title">Risk to Reward Ratio (R:R)</h2>
+<p class="lec-intro">The Risk to Reward Ratio is one of the most misunderstood concepts among beginner traders. Most beginners think they need to win 70-80% of their trades to make money. The truth is completely different: <strong>you can lose more than half your trades and still build wealth consistently</strong> — if your R:R ratio is correct. This single insight changes everything about how you approach trading.</p>
+</div></div>
+<div class="cblock" style="margin-bottom:26px">
+<div class="cblock-title"><i class="fas fa-calculator"></i> The Math That Changes Everything</div>
+<div class="cblock-text">
+<table class="fx-table">
+<tr><th>Result</th><th>Trades</th><th>Pips Each</th><th>Total</th></tr>
+<tr><td><span class="hl-g">Winners (5)</span></td><td>5</td><td>+100 pips</td><td><span class="hl-g">+500 pips profit</span></td></tr>
+<tr><td><span class="hl-r">Losers (5)</span></td><td>5</td><td>-50 pips</td><td><span class="hl-r">-250 pips lost</span></td></tr>
+<tr><td><strong>Net</strong></td><td>10 total</td><td>50% win rate</td><td><strong class="hl-g">+250 pips net profit</strong></td></tr>
+</table>
+<p style="margin-top:12px">You won only 50% of trades — half the time you were wrong — and you <strong>still made 250 pips of profit</strong>. That is the power of 1:2 R:R working in your favour over time.</p>
+<div class="info-box"><strong>Minimum Standard:</strong> Always aim for at least <strong>1:2 R:R</strong> — risk 1 to potentially gain 2. If a setup cannot offer you at least 1:2 R:R, skip it and wait for a better opportunity. Not every chart pattern is worth trading.</div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">R:R VISUALISED:
+
+   TAKE PROFIT ████████████████████████ ← 100 pips reward (2x)
+         |
+         |    ← GREEN ZONE (x2 your risk)
+         |
+   ENTRY ──────────────────────────────
+         |
+         |    ← RED ZONE (your risk)
+         |
+   STOP LOSS ████████████████ ← 50 pips risk (1x)
+
+Minimum acceptable: 1:2  Good: 1:3  Excellent: 1:4+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>R:R compares potential risk to potential reward</strong> on every trade before you enter</li>
+<li>With <strong>1:2 R:R</strong>, you can lose 50% of trades and still be consistently profitable</li>
+<li><strong>Minimum standard: 1:2 R:R.</strong> Skip any setup that does not meet this threshold</li>
+<li><strong>Never enter a trade without calculating R:R first</strong> — it takes 30 seconds and saves accounts</li>
+<li>High R:R gives you <strong>room to be wrong more often</strong> while still making net profits</li>
+</ul>
+</div>
+<div class="quiz">
+<div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 10</div>
+<p class="quiz-q">Your stop loss is 30 pips from entry. For a minimum 1:2 R:R, where must your take profit be?</p>
+<button class="quiz-btn" onclick="document.getElementById('q10').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q10"><strong>Answer: At least 60 pips from entry.</strong> 30 pips risk × 2 = 60 pips minimum reward required. For a 1:3 R:R it would need to be 90 pips from entry. Always calculate this before placing the trade — if the reward level is not at a logical price point, skip the trade.</div>
+</div>
+</section>
+
+<!-- LECTURE 11 -->
+<section class="lec-sec" id="lec-11">
+<div class="lec-hdr"><div class="lec-num">11</div><div>
+<div class="lec-tag">Mindset &nbsp;• 10 min read</div>
+<h2 class="lec-title">Trading Psychology</h2>
+<p class="lec-intro">It is often said that trading is <strong>90% psychology and 10% strategy</strong>. You can have the best strategy in the world, the best charts, the best tools — but if your emotions control your decisions, you will consistently lose money. Your biggest enemy in the markets is not the market itself. It is the version of you that panics, gets greedy, or tries to win back losses by taking impulsive trades.</p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-brain"></i> The 4 Emotional Enemies</div>
+<div class="cblock-text">
+<p><strong class="hl-r">1. Fear</strong> — Afraid to enter a valid setup even though all your rules say enter. Closing trades too early. Missing opportunities because of doubt. Solution: Trust your plan. If your criteria are met, execute.</p>
+<p><strong class="hl-r">2. Greed</strong> — Moving your take profit further and further because you think price will keep going. Increasing lot size after wins. Chasing trades that have already moved. Solution: Set your TP before entry and let it hit.</p>
+<p><strong class="hl-r">3. Revenge Trading</strong> — Losing a trade and immediately jumping into another to "win it back." This almost always creates bigger losses. Solution: Walk away for at least 15-30 minutes after a loss.</p>
+<p><strong class="hl-r">4. Overconfidence</strong> — Winning 5 trades in a row and suddenly believing you are invincible. Ignoring your rules. Taking trades that do not meet your criteria. Solution: Stay humble. The market has humbled every trader who became overconfident.</p>
+</div></div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-crosshairs"></i> The Professional Mindset</div>
+<div class="cblock-text">
+<p>Professional traders do not think "I need to win this trade." They think: <em>"My job is to execute my plan perfectly. The outcome is secondary."</em></p>
+<p>They think in probabilities over a series of trades — not individual outcomes. If their strategy wins 60% of trades over 100 trades with 1:2 R:R, they trust the numbers and follow the plan regardless of each individual result.</p>
+<p><strong>Before every single trade, ask yourself:</strong> Is the trend clear? Is my setup valid? Where is my stop loss? What is my R:R? Am I entering because of a real setup or because of emotion?</p>
+</div></div>
+</div>
+<div class="vbox">
+<div class="chart-c">THE PROFESSIONAL TRADING CYCLE:
+
+  PLAN → EXECUTE → MONITOR → ACCEPT RESULT → REVIEW → PLAN
+
+Each step matters:
+  PLAN:    Define entry, SL, TP, risk BEFORE touching the chart
+  EXECUTE: Enter only when ALL criteria are met
+  MONITOR: Do not move stop loss to avoid loss
+  ACCEPT:  Win or loss — accept it as part of the process
+  REVIEW:  What worked? What did not? Journal it.
+
+EMOTIONAL TRADER vs PROFESSIONAL TRADER:
+  Loss: Revenge trade immediately   vs  Walk away, review, come back calm
+  Win:  Increase lot size, get risky vs  Follow the same plan next trade</div>
+</div>
+<div class="warn-box"><strong>After any loss:</strong> Close your trading platform. Walk away. Do not open another trade. Review what happened calmly. Come back only when you are clear-headed and your plan says there is a valid setup. Revenge trading has ended more trading careers than any bad strategy ever could.</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Fear, greed, revenge, overconfidence</strong> are your four biggest trading enemies</li>
+<li><strong>Discipline consistently beats emotion</strong> — every single time, over the long run</li>
+<li>Losses are <strong>part of the business</strong> — even professionals lose trades regularly</li>
+<li><strong>Walk away after any loss</strong> — never trade when emotional</li>
+<li>The goal is <strong>consistent execution of your plan</strong>, not winning every individual trade</li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 11</div>
+<p class="quiz-q">What should you do immediately after a losing trade?</p>
+<button class="quiz-btn" onclick="document.getElementById('q11').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q11"><strong>Answer: Stop. Walk away.</strong> Review the trade with a calm mind: Was it part of your plan? Did you follow your rules? If yes, accept it as normal — losses are part of trading. If no, identify what you did wrong. Come back only when you are calm and there is a valid setup. Never open another trade to "win it back" — that is revenge trading and leads to even bigger losses.</div>
+</div></section>
+
+<!-- LECTURE 12 -->
+<section class="lec-sec" id="lec-12">
+<div class="lec-hdr"><div class="lec-num">12</div><div>
+<div class="lec-tag">Professional Framework &nbsp;• 9 min read</div>
+<h2 class="lec-title">Trading Plan</h2>
+<p class="lec-intro">A Trading Plan is the single document that separates professional traders from gamblers. It contains every rule you will follow for every trade. Without a written plan, every decision becomes emotional and inconsistent. With a plan, you execute mechanically, without second-guessing. <strong>Without a plan, you are gambling. With a plan, you are running a trading business.</strong></p>
+</div></div>
+<div class="vbox">
+<div class="chart-c">MY TRADING PLAN TEMPLATE:
+==============================================
+
+MARKETS:      EUR/USD, GBP/USD (1-2 pairs max)
+TIMEFRAMES:   4H (trend direction), 1H (structure), 15M (entry)
+SESSION:      London (8AM-5PM Nigerian time)
+
+ENTRY RULES (ALL must be true before entering):
+  1. Market in a clear trend (HH+HL or LH+LL)
+  2. BoS or ChOCH confirmed
+  3. Price at Support or Resistance zone
+  4. Confirmation candle present
+
+STOP LOSS:    Below recent swing low (BUY trades)
+              Above recent swing high (SELL trades)
+
+TAKE PROFIT:  Minimum 2x risk (1:2 R:R)
+
+RISK PER TRADE: 1% of account maximum
+
+MAX TRADES:   2 per day
+
+DAILY LOSS LIMIT: 3% of account (stop trading for the day)
+
+REVIEW:       Journal every trade — win or loss
+
+==============================================</div>
+</div>
+<div class="info-box"><strong>How to Start:</strong> Begin with the simplest possible plan — 1 pair, 1 timeframe combination, 1 session, 3 clear entry rules. Follow it for 30 days without changing anything. Then review, improve, and repeat. Complexity does not equal profitability.</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li>A Trading Plan <strong>removes emotion</strong> from every single trading decision you make</li>
+<li><strong>Write it down</strong> — a plan in your head is not a plan; it bends under emotional pressure</li>
+<li>Include <strong>entry rules, SL/TP rules, risk rules, and daily limits</strong></li>
+<li><strong>Review it monthly</strong> based on your trading journal — improve with evidence, not guesses</li>
+<li><strong>Without a plan = gambling. With a plan = professional trading.</strong></li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 12</div>
+<p class="quiz-q">What is the most critical component of a Trading Plan and why?</p>
+<button class="quiz-btn" onclick="document.getElementById('q12').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q12"><strong>Answer: Risk Management.</strong> While all components matter, risk management is most critical because it determines whether you survive long enough to benefit from your strategy. Perfect entries with poor risk management will still blow your account. But even a mediocre entry strategy with excellent risk management can be profitable over time.</div>
+</div></section>
+
+<!-- LECTURE 13 -->
+<section class="lec-sec" id="lec-13">
+<div class="lec-hdr"><div class="lec-num">13</div><div>
+<div class="lec-tag">Market Timing &nbsp;• 8 min read</div>
+<h2 class="lec-title">Trading Sessions</h2>
+<p class="lec-intro">Forex is open 24 hours a day, 5 days a week — but this does not mean all hours are equally good for trading. The market has completely different personalities depending on which session is active. Trading during the wrong session is like going fishing in an empty lake. You have the right rod and the right bait, but there are no fish. <strong>Session awareness can improve your results dramatically.</strong></p>
+</div></div>
+<div class="cblock" style="margin-bottom:26px">
+<div class="cblock-title"><i class="fas fa-globe"></i> The 4 Sessions — Nigerian Time</div>
+<div class="cblock-text">
+<table class="fx-table">
+<tr><th>Session</th><th>GMT</th><th>Nigerian Time</th><th>Activity</th></tr>
+<tr><td>Sydney</td><td>10PM-7AM</td><td>11PM-8AM</td><td><span class="hl-r">Low — avoid</span></td></tr>
+<tr><td>Tokyo</td><td>12AM-9AM</td><td>1AM-10AM</td><td><span class="hl-gold">Moderate — Asian pairs</span></td></tr>
+<tr><td>London</td><td>7AM-4PM</td><td>8AM-5PM</td><td><span class="hl-g">High — best setups</span></td></tr>
+<tr><td>New York</td><td>12PM-9PM</td><td>1PM-10PM</td><td><span class="hl-g">High — follows London</span></td></tr>
+<tr><td><strong>London-NY Overlap</strong></td><td>12PM-4PM</td><td><strong>1PM-5PM</strong></td><td><strong class="hl-g">BEST — highest probability</strong></td></tr>
+</table>
+</div>
+</div>
+<div class="info-box"><strong>For Nigerian traders:</strong> Your prime trading window is <strong>8AM–5PM</strong> (London session) and the sweet spot is <strong>1PM–5PM</strong> (London-New York overlap). Build your daily schedule around these hours for maximum results.</div>
+<div class="prob-card">
+<div class="prob-hdr">Success Probability by Session</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">London-New York Overlap</span><div class="prob-track"><div class="prob-fill f-hi" style="width:75%"></div></div><span class="prob-pct hl-g">70-80%</span></div>
+<div class="prob-row"><span class="prob-lbl">London Session</span><div class="prob-track"><div class="prob-fill f-hi" style="width:70%"></div></div><span class="prob-pct hl-g">65-75%</span></div>
+<div class="prob-row"><span class="prob-lbl">New York Session</span><div class="prob-track"><div class="prob-fill f-md" style="width:65%"></div></div><span class="prob-pct hl-gold">60-70%</span></div>
+<div class="prob-row"><span class="prob-lbl">Tokyo Session</span><div class="prob-track"><div class="prob-fill f-lo" style="width:52%"></div></div><span class="prob-pct hl-r">50-60%</span></div>
+<div class="prob-row"><span class="prob-lbl">Sydney Session</span><div class="prob-track"><div class="prob-fill f-lo" style="width:40%"></div></div><span class="prob-pct hl-r">40-50%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li>Forex is <strong>24/5 but not all hours are equal</strong> — session matters more than most beginners realise</li>
+<li><strong>London-NY overlap (1PM-5PM Nigerian)</strong> has highest volume and most opportunities</li>
+<li>High volume = <strong>tighter spreads, stronger moves, more setups</strong></li>
+<li>Avoid Sydney and Tokyo for active trading of major pairs — low volume creates false signals</li>
+<li>Build your <strong>daily trading schedule around the London session</strong> for best results</li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 13</div>
+<p class="quiz-q">What makes the London-New York overlap the best time to trade forex?</p>
+<button class="quiz-btn" onclick="document.getElementById('q13').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q13"><strong>Answer:</strong> The London-New York overlap has the highest trading volume of any time in the forex market. Both the world's two largest financial centres are active simultaneously — creating maximum participation. This results in tighter spreads (cheaper trading costs), stronger and more predictable price movements, and more high-quality setups.</div>
+</div></section>
+
+<!-- LECTURE 14 -->
+<section class="lec-sec" id="lec-14">
+<div class="lec-hdr"><div class="lec-num">14</div><div>
+<div class="lec-tag">Advanced Technique &nbsp;• 11 min read</div>
+<h2 class="lec-title">Multi-Timeframe Analysis</h2>
+<p class="lec-intro">Multi-timeframe analysis is like using three different zoom levels on a map. The widest view shows you where you are in the world. The medium zoom shows you the city and route. The close-up zoom shows you exactly where to step. By aligning all three timeframes, you see the same picture at different magnifications — and when they all agree, your probability of success goes up dramatically.</p>
+</div></div>
+<div class="cblock" style="margin-bottom:26px">
+<div class="cblock-title"><i class="fas fa-layer-group"></i> The Three-Timeframe System</div>
+<div class="cblock-text">
+<table class="fx-table">
+<tr><th>Timeframe</th><th>Role</th><th>What You Do</th></tr>
+<tr><td><span class="hl-g">4H — Big Picture</span></td><td>Identify overall trend</td><td>Draw S/R, identify HH+HL or LH+LL</td></tr>
+<tr><td><span class="hl-gold">1H — Middle View</span></td><td>Confirm structure + setup</td><td>Look for BoS, ChOCH, key zones</td></tr>
+<tr><td><span class="hl-b">15M — Entry Precision</span></td><td>Find exact entry point</td><td>Confirmation candle, SL placement</td></tr>
+</table>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">MULTI-TIMEFRAME ANALYSIS FLOW:
+
+4H: "EUR/USD is in an UPTREND — Higher Highs, Higher Lows"
+    |
+    v
+1H: "Price approaching key support zone. Bullish BoS confirmed."
+    |
+    v
+15M: "Bullish engulfing candle at support. ALL timeframes aligned."
+    |
+    v
+ENTRY: BUY at 1.0855
+SL:    1.0830 (below 15M swing low)
+TP:    1.0900 (4H resistance level)
+R:R:   1:1.8 -- all timeframes confirm BUY
+
+THE GOLDEN RULE: Only trade when all 3 timeframes agree.
+If 4H says BUY but 1H shows bearish structure — WAIT.</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Success Probability by Timeframe Alignment</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">All 3 timeframes aligned</span><div class="prob-track"><div class="prob-fill f-hi" style="width:80%"></div></div><span class="prob-pct hl-g">75-85%</span></div>
+<div class="prob-row"><span class="prob-lbl">2 timeframes aligned</span><div class="prob-track"><div class="prob-fill f-md" style="width:65%"></div></div><span class="prob-pct hl-gold">60-70%</span></div>
+<div class="prob-row"><span class="prob-lbl">Single timeframe only</span><div class="prob-track"><div class="prob-fill f-lo" style="width:50%"></div></div><span class="prob-pct hl-r">45-55%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>4H timeframe</strong> = overall trend direction and major support/resistance levels</li>
+<li><strong>1H timeframe</strong> = market structure confirmation and setup zone identification</li>
+<li><strong>15M timeframe</strong> = precise entry point, stop loss placement, take profit level</li>
+<li><strong>All timeframes must agree</strong> before entering — never trade against a higher timeframe</li>
+<li>Multi-timeframe analysis increases accuracy and <strong>reduces false signals dramatically</strong></li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 14</div>
+<p class="quiz-q">What is the purpose of the 15-minute timeframe in multi-timeframe analysis?</p>
+<button class="quiz-btn" onclick="document.getElementById('q14').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q14"><strong>Answer: Precise entry.</strong> After confirming the overall trend on the 4H and market structure on the 1H, the 15M is used to find the exact entry candle, the precise stop loss level (below/above the most recent swing), and the exact take profit target. It is the execution timeframe — not the analysis timeframe.</div>
+</div></section>
+
+<!-- LECTURE 15 -->
+<section class="lec-sec" id="lec-15">
+<div class="lec-hdr"><div class="lec-num">15</div><div>
+<div class="lec-tag">Advanced Strategy &nbsp;• 12 min read</div>
+<h2 class="lec-title">Combining Tools with BoS & ChOCH</h2>
+<p class="lec-intro">You now know every core concept in professional forex trading. In this lecture, we bring it all together. BoS and ChOCH are powerful on their own — but when you <strong>stack multiple confirmations</strong>, your probability of success can reach 85-90%. This is exactly how professional traders build their high-conviction setups before risking real money.</p>
+</div></div>
+<div class="cblock" style="margin-bottom:26px">
+<div class="cblock-title"><i class="fas fa-layer-group"></i> Confirmation Tools to Stack with BoS/ChOCH</div>
+<div class="cblock-text">
+<table class="fx-table">
+<tr><th>Tool</th><th>What It Adds</th><th>How to Use</th></tr>
+<tr><td>Support & Resistance</td><td>Key reaction zones</td><td>BoS near S&R = much stronger signal</td></tr>
+<tr><td>Trendlines</td><td>Dynamic S&R direction</td><td>BoS in trendline direction = confirmation</td></tr>
+<tr><td>Moving Averages</td><td>Trend filter</td><td>Price above MA = bullish filter on BoS</td></tr>
+<tr><td>Order Blocks (OB)</td><td>Institutional zone</td><td>Retest OB after BoS for entry</td></tr>
+<tr><td>Fair Value Gap (FVG)</td><td>Price imbalance</td><td>Enter when price returns to FVG after BoS</td></tr>
+<tr><td>RSI / Stochastic</td><td>Momentum filter</td><td>RSI above 50 = bullish momentum</td></tr>
+<tr><td>Multi-Timeframe</td><td>Direction alignment</td><td>All TFs confirming same direction</td></tr>
+</table>
+</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Probability Stacking — The More Confirmations, The Higher The Edge</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">BoS alone</span><div class="prob-track"><div class="prob-fill f-md" style="width:65%"></div></div><span class="prob-pct hl-gold">60-70%</span></div>
+<div class="prob-row"><span class="prob-lbl">BoS + 1 confirmation</span><div class="prob-track"><div class="prob-fill f-hi" style="width:72%"></div></div><span class="prob-pct hl-g">70-75%</span></div>
+<div class="prob-row"><span class="prob-lbl">BoS + 2-3 confirmations</span><div class="prob-track"><div class="prob-fill f-hi" style="width:82%"></div></div><span class="prob-pct hl-g">80-85%</span></div>
+<div class="prob-row"><span class="prob-lbl">BoS + 4+ confirmations</span><div class="prob-track"><div class="prob-fill f-hi" style="width:88%"></div></div><span class="prob-pct hl-g">85-90%</span></div>
+</div>
+</div>
+<div class="scenario">
+<div class="scenario-hdr"><div class="sc-badge">COMPLETE SETUP</div><div class="sc-title">EUR/USD — 5-Confirmation BUY</div></div>
+<div style="display:flex;flex-direction:column;gap:7px;margin-bottom:15px">
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 1.</span><span style="color:var(--muted)">Bullish <strong>BoS</strong> confirmed on 1H</span></div>
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 2.</span><span style="color:var(--muted)"><strong>Support level</strong> at 1.0950 (tested 3x before)</span></div>
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 3.</span><span style="color:var(--muted)">Price <strong>above 50 MA</strong> — bullish filter confirmed</span></div>
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 4.</span><span style="color:var(--muted)"><strong>Fair Value Gap</strong> just below current price</span></div>
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 5.</span><span style="color:var(--muted)"><strong>RSI above 50</strong> — bullish momentum confirmed</span></div>
+</div>
+<div class="td-grid">
+<div class="td-item"><div class="td-lbl">Entry (BUY)</div><div class="td-val td-buy">1.0950</div></div>
+<div class="td-item"><div class="td-lbl">Stop Loss</div><div class="td-val td-sell">1.0930</div></div>
+<div class="td-item"><div class="td-lbl">Take Profit</div><div class="td-val td-buy">1.1000</div></div>
+<div class="td-item"><div class="td-lbl">Risk</div><div class="td-val td-sell">20 pips</div></div>
+<div class="td-item"><div class="td-lbl">Reward</div><div class="td-val td-buy">50 pips</div></div>
+<div class="td-item"><div class="td-lbl">Probability</div><div class="td-val td-gold">~85%</div></div>
+</div>
+</div>
+<div class="warn-box"><strong>Do Not Overcomplicate:</strong> You do not need all 7 tools on every trade. Most professionals use 2-4 solid confirmations consistently. Using too many creates "analysis paralysis" — you never trade because the perfect setup never appears. Quality of confirmations matters more than quantity.</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li>BoS/ChOCH are powerful alone — <strong>even better with 2-4 quality confirmations</strong></li>
+<li>Support/Resistance, Trendlines, MAs, OBs, and FVGs all add confirmation weight</li>
+<li><strong>More confirmations = higher probability</strong> but diminishing returns after 4</li>
+<li>You now have a <strong>complete framework</strong>: structure → session → setup → confirmation → entry → management</li>
+<li>The only remaining step is <strong>practice, discipline, and consistency over many trades</strong></li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 15</div>
+<p class="quiz-q">How many confirmations should you aim for with BoS, and why not use all tools every time?</p>
+<button class="quiz-btn" onclick="document.getElementById('q15').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q15"><strong>Answer: 2-4 confirmations.</strong> Two or more gives you 80%+ probability. Using all 7 tools causes analysis paralysis — you will never find a setup that ticks every single box, so you will end up not trading at all. Pick 2-4 that complement each other (e.g., BoS + S/R + FVG + candle confirmation) and stick with that combination consistently.</div>
+</div></section>
+
+<!-- LECTURE 16 -->
+<section class="lec-sec" id="lec-16">
+<div class="lec-hdr"><div class="lec-num">16</div><div>
+<div class="lec-tag">Price Action Deep Dive &nbsp;• 9 min read</div>
+<h2 class="lec-title">Candlestick Types — The Complete Guide</h2>
+<p class="lec-intro">In Lecture 2 you learned the basics of candlesticks. In this lecture, we go deeper. Every candlestick type has a specific meaning and tells you something specific about market psychology at that exact moment. Learning to read each type fluently is like learning to understand the language the market speaks — and once you do, you will never look at a chart the same way again.</p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-bars"></i> The Main Candle Types</div>
+<div class="cblock-text">
+<p><strong class="hl-g">Long Bullish Candle:</strong> Very small or no wicks, large green body. Buyers were completely dominant the entire period. Very strong continuation signal in an uptrend. Watch for these during the London-New York overlap for strong momentum trades.</p>
+<p><strong class="hl-r">Long Bearish Candle:</strong> Very small or no wicks, large red body. Sellers were completely dominant. Very strong continuation signal in a downtrend. Often appears on news releases or at key resistance breaks.</p>
+<p><strong class="hl-gold">Doji:</strong> Open and close are almost equal — tiny or no body, wicks on both sides. Represents complete indecision — buyers and sellers fought all period and neither won. Do not trade on a Doji alone. Wait for the next candle to confirm direction.</p>
+</div></div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-chart-bar"></i> More Candle Types</div>
+<div class="cblock-text">
+<p><strong class="hl-g">Bullish Pinbar (Hammer):</strong> Small body at the top, very long lower wick. Sellers tried to push price down strongly but buyers overpowered them completely and pushed price back up. The longer the wick, the stronger the rejection. Find these at support levels for high-probability BUY signals.</p>
+<p><strong class="hl-r">Bearish Pinbar (Shooting Star):</strong> Small body at the bottom, very long upper wick. Buyers tried to push price up strongly but sellers overwhelmed them completely. Find these at resistance levels for high-probability SELL signals.</p>
+<p><strong>Spinning Top:</strong> Small body with long wicks on both sides. Similar to Doji — both sides fought and neither won convincingly. Signals indecision. Wait for confirmation from the next candle before acting.</p>
+</div></div>
+</div>
+<div class="vbox">
+<div class="chart-c">CANDLE TYPE VISUAL GUIDE:
+
+Long Bull  Long Bear  Doji     Hammer    Shoot Star  Spinning
+  ||||       ||||      |         |           |||||       |||
+  ||||       ||||      |         |           |||||       |||
+  ||||       ||||    -----     -----          ---       -----
+             ||||      |         |           -----        |
+             ||||      |        |||||           |         |
+                       |        |||||           |         |
+                                |||||
+
+Green=BUY  Red=SELL  Wait   BUY at S   SELL at R    Wait
+
+KEY:
+- Long body = strong momentum (one side dominated)
+- Long wick  = strong rejection (the other side won that extreme)
+- No body    = indecision (wait for confirmation)</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Candle Signal Success Probability</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">Candle + Multiple Confirmations</span><div class="prob-track"><div class="prob-fill f-hi" style="width:82%"></div></div><span class="prob-pct hl-g">80-85%</span></div>
+<div class="prob-row"><span class="prob-lbl">Candle + Support/Resistance</span><div class="prob-track"><div class="prob-fill f-hi" style="width:72%"></div></div><span class="prob-pct hl-g">70-75%</span></div>
+<div class="prob-row"><span class="prob-lbl">Candle alone</span><div class="prob-track"><div class="prob-fill f-lo" style="width:55%"></div></div><span class="prob-pct hl-r">50-60%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Long body = dominance</strong> — one side controlled the whole period without resistance</li>
+<li><strong>Long wick = rejection</strong> — the market tested an extreme and was pushed hard the other way</li>
+<li><strong>Doji / Spinning Top = indecision</strong> — wait for the next candle to confirm direction</li>
+<li><strong>Hammer at support = BUY signal;</strong> Shooting Star at resistance = SELL signal</li>
+<li>Never trade a single candle in isolation — <strong>always combine with structure and levels</strong></li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 16</div>
+<p class="quiz-q">What does a Doji candle tell you and what should you do when you see one?</p>
+<button class="quiz-btn" onclick="document.getElementById('q16').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q16"><strong>Answer: Indecision.</strong> A Doji means neither buyers nor sellers won the period. The market is undecided. You should wait for the very next candle for confirmation. If it closes bullish, lean toward BUY. If it closes bearish, lean toward SELL. Never enter a trade based on a Doji alone.</div>
+</div></section>
+
+<!-- LECTURE 17 -->
+<section class="lec-sec" id="lec-17">
+<div class="lec-hdr"><div class="lec-num">17</div><div>
+<div class="lec-tag">Pattern Recognition &nbsp;• 11 min read</div>
+<h2 class="lec-title">Bullish & Bearish Candlestick Patterns</h2>
+<p class="lec-intro">While single candles give important clues, <strong>candlestick patterns</strong> — combinations of 2 or 3 candles — give even stronger and more reliable signals. These patterns have been used in financial markets for centuries and remain highly effective today, especially when combined with key price levels and market structure. Learning the most important ones will give you a significant edge.</p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-arrow-up"></i> Top Bullish Patterns (BUY)</div>
+<div class="cblock-text">
+<table class="fx-table">
+<tr><th>Pattern</th><th>Signal</th><th>Best At</th></tr>
+<tr><td>Hammer</td><td>Long lower wick at downtrend bottom</td><td>Support</td></tr>
+<tr><td>Bullish Engulfing</td><td>Green candle engulfs red — strongest reversal</td><td>Support</td></tr>
+<tr><td>Morning Star</td><td>Red → Small → Green (3 candles)</td><td>End of downtrend</td></tr>
+<tr><td>Bullish Harami</td><td>Small green inside large red</td><td>Support</td></tr>
+<tr><td>Dragonfly Doji</td><td>Long lower wick, no upper wick</td><td>Support</td></tr>
+</table>
+</div></div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-arrow-down"></i> Top Bearish Patterns (SELL)</div>
+<div class="cblock-text">
+<table class="fx-table">
+<tr><th>Pattern</th><th>Signal</th><th>Best At</th></tr>
+<tr><td>Shooting Star</td><td>Long upper wick at uptrend top</td><td>Resistance</td></tr>
+<tr><td>Bearish Engulfing</td><td>Red candle engulfs green — strongest reversal</td><td>Resistance</td></tr>
+<tr><td>Evening Star</td><td>Green → Small → Red (3 candles)</td><td>End of uptrend</td></tr>
+<tr><td>Bearish Harami</td><td>Small red inside large green</td><td>Resistance</td></tr>
+<tr><td>Gravestone Doji</td><td>Long upper wick, no lower wick</td><td>Resistance</td></tr>
+</table>
+</div></div>
+</div>
+<div class="vbox">
+<div class="chart-c">BULLISH ENGULFING (Strongest Bullish Pattern):
+
+  Before (Red)   After (Green)
+     ┌───┐          ┌─────┐
+     │RED│          │GREEN│ ← Green body is LARGER than red
+     │   │          │     │    completely engulfs it
+     │   │          │     │
+     └───┘          └─────┘
+
+MORNING STAR (3-Candle Reversal):
+
+   Red     Small    Green     ← 3 candles signal seller exhaustion
+   ┌───┐   ┌──┐   ┌─────┐       then buyer takeover
+   │   │   │  │   │     │
+   │   │   │  │   │     │
+   └───┘   └──┘   └─────┘
+ Downtrend  Pause  Reversal
+
+EVENING STAR (Bearish Version — Same But Reversed):
+  Green → Small → Red  at resistance = SELL signal</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Pattern Success Probability</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">Pattern + S/R + Structure</span><div class="prob-track"><div class="prob-fill f-hi" style="width:82%"></div></div><span class="prob-pct hl-g">80-85%</span></div>
+<div class="prob-row"><span class="prob-lbl">Pattern + Support/Resistance</span><div class="prob-track"><div class="prob-fill f-hi" style="width:72%"></div></div><span class="prob-pct hl-g">70-75%</span></div>
+<div class="prob-row"><span class="prob-lbl">Pattern alone</span><div class="prob-track"><div class="prob-fill f-md" style="width:60%"></div></div><span class="prob-pct hl-gold">55-65%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Bullish patterns at support = BUY signals;</strong> Bearish patterns at resistance = SELL signals</li>
+<li><strong>Engulfing patterns</strong> (both bull and bear) are the strongest single-level signals you will find</li>
+<li>The <strong>Morning Star and Evening Star</strong> are the most reliable 3-candle reversal patterns</li>
+<li><strong>Always wait for confirmation</strong> — pattern must complete before you enter</li>
+<li>Combine with <strong>market structure and BoS/ChOCH</strong> for the highest probability setups</li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 17</div>
+<p class="quiz-q">What is the difference between a Hammer and a Shooting Star?</p>
+<button class="quiz-btn" onclick="document.getElementById('q17').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q17"><strong>Answer: Location and direction.</strong> A Hammer forms at the BOTTOM of a downtrend — it has a long lower wick showing buyers rejected a move down, signaling a potential bullish reversal (BUY). A Shooting Star forms at the TOP of an uptrend — it has a long upper wick showing sellers rejected a move up, signaling a potential bearish reversal (SELL).</div>
+</div></section>
+
+<!-- LECTURE 18 -->
+<section class="lec-sec" id="lec-18">
+<div class="lec-hdr"><div class="lec-num">18</div><div>
+<div class="lec-tag">Smart Money Concepts &nbsp;• 11 min read</div>
+<h2 class="lec-title">Liquidity & Liquidity Sweeps</h2>
+<p class="lec-intro">Liquidity is one of the most important — and most misunderstood — concepts in forex trading. Most retail traders think the market moves randomly or in response to news. Professional Smart Money traders know the truth: <strong>the market moves to take liquidity</strong>. Once you understand this, you will start to see charts completely differently — and you will stop being the person who gets swept out of trades right before price moves.</p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-magnet"></i> What Is Liquidity?</div>
+<div class="cblock-text"><p>Liquidity is where large concentrations of buy orders, sell orders, stop losses, and pending orders are clustered. These areas <strong>attract price like a magnet</strong> because institutional traders need large amounts of liquidity to fill their massive positions without moving the market against themselves.</p>
+<p>Where does liquidity sit? Above every high (where sellers have stop losses and buyers have orders), and below every low (where buyers have stop losses and sellers have orders). The bigger and more obvious the high or low, the more liquidity sits around it.</p></div>
+</div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-water"></i> The Liquidity Sweep</div>
+<div class="cblock-text"><p>A Liquidity Sweep is when price briefly moves beyond a key level — above a high or below a low — triggering all the orders there, then <strong>immediately reverses</strong> in the opposite direction.</p>
+<p>This is Smart Money collecting the liquidity they need to fill their real positions. After the sweep, they push price in their true intended direction — and that is where your trade opportunity lies. You enter AFTER the sweep, on confirmation of the reversal, not before.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">BEARISH LIQUIDITY SWEEP (SELL SETUP):
+
+  LIQUIDITY builds above equal highs: ████████████████████████
+  (stop losses + buy orders accumulating here)
+
+  Equal High ──────────────────────────────────────────────────
+                               ↑ Price sweeps ABOVE (takes liq)
+                               ↑ Bearish candle forms here
+
+  Price REVERSES DOWN after sweep
+  ↓ ↓ ↓ ← YOUR SELL ENTRY HERE (after confirmation)
+
+BULLISH LIQUIDITY SWEEP (BUY SETUP):
+
+  Price REVERSES UP after sweep
+  ↑ ↑ ↑ ← YOUR BUY ENTRY HERE (after confirmation)
+                               ↓ Bullish candle forms here
+                               ↓ Price sweeps BELOW (takes liq)
+  Equal Low ────────────────────────────────────────────────────
+  LIQUIDITY builds below equal lows: ████████████████████████</div>
+</div>
+<div class="scenario">
+<div class="scenario-hdr"><div class="sc-badge">EXAMPLE TRADE</div><div class="sc-title">EUR/USD — Bearish Liquidity Sweep SELL</div></div>
+<p style="color:var(--muted);font-size:14px">EUR/USD has equal highs at 1.1100. Price sweeps above them with a bearish engulfing candle forming immediately after — classic bearish liquidity sweep.</p>
+<div class="td-grid">
+<div class="td-item"><div class="td-lbl">Swept Level</div><div class="td-val td-neu">1.1100</div></div>
+<div class="td-item"><div class="td-lbl">Entry (SELL)</div><div class="td-val td-sell">1.1100</div></div>
+<div class="td-item"><div class="td-lbl">Stop Loss</div><div class="td-val td-sell">1.1115</div></div>
+<div class="td-item"><div class="td-lbl">Take Profit</div><div class="td-val td-buy">1.1050</div></div>
+<div class="td-item"><div class="td-lbl">Risk</div><div class="td-val td-sell">15 pips</div></div>
+<div class="td-item"><div class="td-lbl">R:R Ratio</div><div class="td-val td-gold">1:3.3 ✅</div></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Liquidity = stop losses + pending orders</strong> concentrated at key levels</li>
+<li>Price moves to take liquidity — <strong>it is not random</strong>, it is purposeful</li>
+<li>Equal Highs and Equal Lows are <strong>the most obvious liquidity pools</strong> on any chart</li>
+<li>After a sweep, price often reverses — <strong>always wait for confirmation</strong> before entering</li>
+<li>Liquidity sweep setups often give <strong>excellent R:R ratios</strong> (tight SL, large TP)</li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 18</div>
+<p class="quiz-q">Why does price often reverse sharply after a liquidity sweep?</p>
+<button class="quiz-btn" onclick="document.getElementById('q18').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q18"><strong>Answer:</strong> During the sweep, Smart Money (institutions) collects the liquidity they need to fill their large positions. Once their orders are filled (using the stop losses and pending orders that were sitting above/below the level), they have no reason to keep pushing price that direction. They reverse it because their real intended move is in the opposite direction — and that is your trading opportunity.</div>
+</div></section>
+
+<!-- LECTURE 19 -->
+<section class="lec-sec" id="lec-19">
+<div class="lec-hdr"><div class="lec-num">19</div><div>
+<div class="lec-tag">Smart Money Concepts &nbsp;• 10 min read</div>
+<h2 class="lec-title">Fair Value Gaps (FVG)</h2>
+<p class="lec-intro">A Fair Value Gap is one of the most useful entry tools in Smart Money Concepts. It appears when price moves so fast in one direction that it leaves a gap — an area of price that was never properly traded. Think of it as an inefficiency the market is obligated to return and fix. <strong>Price returns to fill these gaps remarkably often</strong>, making them high-precision entry zones when combined with your other tools.</p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-expand-arrows-alt"></i> What Creates an FVG?</div>
+<div class="cblock-text"><p>An FVG is a 3-candle pattern. A large impulsive candle (Candle 2) moves so fast that it creates a gap between Candle 1 and Candle 3. In a <strong class="hl-g">Bullish FVG</strong>, Candle 3's LOW is higher than Candle 1's HIGH — there is untradeable space between them. In a <strong class="hl-r">Bearish FVG</strong>, Candle 3's HIGH is lower than Candle 1's LOW.</p><p>This gap represents price inefficiency — orders that were never filled because the market moved too fast. Price often returns to these zones to fill those orders before continuing in the original direction.</p></div>
+</div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-bullseye"></i> How to Trade FVGs</div>
+<div class="cblock-text"><p>The simplest approach: identify an FVG in the direction of your higher-timeframe trend, mark the gap zone, and <strong>wait for price to return to it</strong>. When price enters the FVG, look for a confirmation candle (engulfing, hammer, or BoS) and enter your trade. Your stop loss goes below the FVG (for bullish) or above it (for bearish). Your target is the next significant support or resistance level.</p><p>FVGs work best when combined with Order Blocks, BoS, and key support/resistance levels — multiple confirmations at the same zone create very high-probability setups.</p></div>
+</div>
+</div>
+<div class="vbox">
+<div class="chart-c">BULLISH FVG IDENTIFICATION & TRADE:
+
+  C3 (Green)  ┌──────┐   ← C3 Low is ABOVE C1 High
+              │      │
+   GAP ZONE   │//////│   ← This is the FVG (price must fill this)
+              │//////│
+  C1 (Green)  └──────┘
+
+  C2 (Large impulsive green candle causes the gap)
+
+TRADE PLAN:
+  1. Identify bullish FVG in uptrend
+  2. Wait for price to pull back INTO the FVG zone
+  3. Look for confirmation candle (engulfing or BoS)
+  4. Enter BUY at bottom of FVG
+  5. Stop Loss below FVG
+  6. Take Profit at next resistance level
+
+BEARISH FVG: Same process reversed (price falls into gap = SELL)</div>
+</div>
+<div class="scenario">
+<div class="scenario-hdr"><div class="sc-badge">EXAMPLE TRADE</div><div class="sc-title">EUR/USD — Bullish FVG BUY</div></div>
+<div class="td-grid">
+<div class="td-item"><div class="td-lbl">FVG Zone</div><div class="td-val td-neu">1.0950-1.0960</div></div>
+<div class="td-item"><div class="td-lbl">Entry</div><div class="td-val td-buy">1.0955</div></div>
+<div class="td-item"><div class="td-lbl">Stop Loss</div><div class="td-val td-sell">1.0935</div></div>
+<div class="td-item"><div class="td-lbl">Take Profit</div><div class="td-val td-buy">1.1000</div></div>
+<div class="td-item"><div class="td-lbl">Risk</div><div class="td-val td-sell">20 pips</div></div>
+<div class="td-item"><div class="td-lbl">R:R</div><div class="td-val td-gold">1:2.25 ✅</div></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li>FVGs are <strong>price imbalances</strong> created when the market moves too fast in one direction</li>
+<li>Price returns to fill these gaps often — they act as <strong>high-precision entry zones</strong></li>
+<li><strong>Bullish FVG = BUY</strong> when price returns to fill gap in an uptrend</li>
+<li><strong>Bearish FVG = SELL</strong> when price returns to fill gap in a downtrend</li>
+<li>Combine FVG with <strong>Order Blocks, BoS, and key levels</strong> for highest probability</li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Quick Quiz — Lecture 19</div>
+<p class="quiz-q">What is a Fair Value Gap and why does price return to fill it?</p>
+<button class="quiz-btn" onclick="document.getElementById('q19').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q19"><strong>Answer:</strong> A Fair Value Gap is a 3-candle pattern where a large middle candle moves so fast it leaves a space (gap) between the first and third candle that was never properly traded. Price returns to fill it because there were unfilled orders in that zone — traders who wanted to buy or sell at those prices but never got the chance. When price returns, those orders get filled and price continues in the original direction.</div>
+</div></section>
+
+<!-- LECTURE 20 -->
+<section class="lec-sec" id="lec-20">
+<div class="lec-hdr"><div class="lec-num">20</div><div>
+<div class="lec-tag">Advanced SMC &nbsp;• Final Lecture &nbsp;• 12 min read</div>
+<h2 class="lec-title">Order Blocks (OB)</h2>
+<p class="lec-intro">Order Blocks are the most powerful entry tool in Smart Money Concepts. They represent the exact price zones where large institutions — banks, hedge funds, and market makers — placed their initial orders before causing a major move. When price returns to these zones, institutions often add to their positions, creating highly reliable bounces. <strong>Great traders do not chase price. They wait for price to return to them at quality zones — and Order Blocks are the highest quality zones on any chart.</strong></p>
+</div></div>
+<div class="cgrid">
+<div class="cblock"><div class="cblock-title"><i class="fas fa-cube"></i> What Is an Order Block?</div>
+<div class="cblock-text"><p>An Order Block is the <strong>last opposite-coloured candle before a strong impulsive move</strong>. When a major institution places a large buy or sell order, they cannot fill the entire position at once without moving the market against themselves. So they fill part of it, push price away to create a move, then wait for price to return to fill the rest of their order at the same zone.</p><p><strong>Bullish OB:</strong> The last red (bearish) candle before a strong move UP. Institutions placed buy orders here. When price returns, they add to their long positions — creating a bounce.</p><p><strong>Bearish OB:</strong> The last green (bullish) candle before a strong move DOWN. Institutions placed sell orders here. When price returns, they add to their short positions — creating a rejection.</p></div>
+</div>
+<div class="cblock"><div class="cblock-title"><i class="fas fa-search"></i> How to Identify an Order Block</div>
+<div class="cblock-text">
+<p><strong>Step 1:</strong> Find a strong impulsive move — a large candle (or series of candles) moving strongly in one direction. This is the institutional push.</p>
+<p><strong>Step 2:</strong> Look at the candle immediately BEFORE that strong move began. The last opposite-coloured candle is your Order Block.</p>
+<p><strong>Step 3:</strong> Mark the HIGH and LOW of that candle. That price zone is your Order Block zone.</p>
+<p><strong>Step 4:</strong> Wait for price to return to that zone. Look for confirmation (BoS, ChOCH, engulfing candle).</p>
+<p><strong>Step 5:</strong> Enter only after confirmation. Stop Loss below OB (bullish) or above OB (bearish).</p>
+</div></div>
+</div>
+<div class="vbox">
+<div class="chart-c">BULLISH ORDER BLOCK IDENTIFICATION:
+
+  5. Price returns to OB zone → ENTRY HERE (BUY)
+  │
+  │  4. Price moves strongly UP (institutional push)
+  │  /
+  │ /
+  │/
+  ├─── 3. LAST RED CANDLE = BULLISH ORDER BLOCK
+  │       (mark its High and Low — that is your zone)
+  │
+  2. Strong bearish move brought price here
+  │
+  1. Price starts here
+
+BEARISH ORDER BLOCK (Same process reversed):
+  Last GREEN candle before strong DOWN move = Bearish OB
+  When price returns UP to that zone → SELL
+
+BEST CONFIRMATIONS TO ADD:
+  BoS after OB test + FVG inside OB + Liquidity sweep below OB = HIGHEST PROBABILITY</div>
+</div>
+<div class="scenario">
+<div class="scenario-hdr"><div class="sc-badge">COMPLETE TRADE EXAMPLE</div><div class="sc-title">EUR/USD — Bullish Order Block with 4 Confirmations</div></div>
+<div style="display:flex;flex-direction:column;gap:7px;margin-bottom:15px">
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 1.</span><span style="color:var(--muted)"><strong>Bullish Order Block</strong> at 1.0940-1.0950</span></div>
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 2.</span><span style="color:var(--muted)"><strong>FVG</strong> overlapping with OB zone</span></div>
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 3.</span><span style="color:var(--muted)"><strong>Bullish BoS</strong> after price enters OB</span></div>
+<div style="display:flex;gap:10px;font-size:13px"><span class="hl-g">✓ 4.</span><span style="color:var(--muted)"><strong>Bullish Engulfing</strong> candle forms in OB zone</span></div>
+</div>
+<div class="td-grid">
+<div class="td-item"><div class="td-lbl">OB Zone</div><div class="td-val td-neu">1.0940-1.0950</div></div>
+<div class="td-item"><div class="td-lbl">Entry (BUY)</div><div class="td-val td-buy">1.0948</div></div>
+<div class="td-item"><div class="td-lbl">Stop Loss</div><div class="td-val td-sell">1.0928</div></div>
+<div class="td-item"><div class="td-lbl">Take Profit</div><div class="td-val td-buy">1.1008</div></div>
+<div class="td-item"><div class="td-lbl">Risk</div><div class="td-val td-sell">20 pips</div></div>
+<div class="td-item"><div class="td-lbl">R:R + Prob</div><div class="td-val td-gold">1:3 | 88%</div></div>
+</div>
+</div>
+<div class="prob-card">
+<div class="prob-hdr">Order Block Success Probability</div>
+<div class="prob-rows">
+<div class="prob-row"><span class="prob-lbl">OB + FVG + BoS + Candle</span><div class="prob-track"><div class="prob-fill f-hi" style="width:88%"></div></div><span class="prob-pct hl-g">85-90%</span></div>
+<div class="prob-row"><span class="prob-lbl">OB + BoS + Candle</span><div class="prob-track"><div class="prob-fill f-hi" style="width:80%"></div></div><span class="prob-pct hl-g">78-85%</span></div>
+<div class="prob-row"><span class="prob-lbl">OB alone</span><div class="prob-track"><div class="prob-fill f-md" style="width:65%"></div></div><span class="prob-pct hl-gold">60-70%</span></div>
+</div>
+</div>
+<div class="takeaways">
+<div class="tk-title"><i class="fas fa-check-circle"></i> Key Takeaways</div>
+<ul class="tk-list">
+<li><strong>Order Blocks = last opposite candle before a strong impulsive move</strong></li>
+<li>Institutions return to these zones to add to their positions — creating high-probability bounces</li>
+<li><strong>Bullish OB = last red candle before a strong move UP</strong> — BUY when price returns</li>
+<li><strong>Bearish OB = last green candle before a strong move DOWN</strong> — SELL when price returns</li>
+<li>OB + FVG + BoS + Candle = <strong>the complete high-probability SMC setup</strong></li>
+</ul>
+</div>
+<div class="quiz"><div class="quiz-title"><i class="fas fa-question-circle"></i> Final Quiz — Lecture 20</div>
+<p class="quiz-q">What exactly is a Bullish Order Block and how do you identify it on a chart?</p>
+<button class="quiz-btn" onclick="document.getElementById('q20').classList.add('show')">Reveal Answer</button>
+<div class="quiz-ans" id="q20"><strong>Answer:</strong> A Bullish Order Block is the last RED (bearish) candle BEFORE a strong upward move. To identify it: find a strong impulsive move upward, look at the candle immediately before that move started, and mark its high and low as your order block zone. When price returns to that zone, institutions often add to their buy positions — creating a high-probability bounce with tight stop losses and large targets.</div>
+</div></section>
+
+<!-- GLOSSARY -->
+<section class="section" id="glossary" style="background:var(--bg2)">
+<div class="section-label">Reference Guide</div>
+<h2 class="section-title">Master Glossary</h2>
+<p class="section-sub">Every important term from all 20 lectures in one place. Bookmark this as your quick reference while you practise.</p>
+<div class="gloss-grid">
+<div class="gloss-item"><div class="gloss-term">BoS — Break of Structure</div><div class="gloss-def">Price breaks a key level in the SAME direction as the trend. Confirms the trend continues.</div></div>
+<div class="gloss-item"><div class="gloss-term">ChOCH — Change of Character</div><div class="gloss-def">Price breaks a key level in the OPPOSITE direction. Signals a possible trend reversal is building.</div></div>
+<div class="gloss-item"><div class="gloss-term">Support</div><div class="gloss-def">A price level where buyers step in and stop price from falling. Acts as a floor.</div></div>
+<div class="gloss-item"><div class="gloss-term">Resistance</div><div class="gloss-def">A price level where sellers step in and stop price from rising. Acts as a ceiling.</div></div>
+<div class="gloss-item"><div class="gloss-term">HH — Higher High</div><div class="gloss-def">A peak higher than the previous peak. Part of bullish market structure.</div></div>
+<div class="gloss-item"><div class="gloss-term">HL — Higher Low</div><div class="gloss-def">A trough higher than the previous trough. Confirms the uptrend is intact.</div></div>
+<div class="gloss-item"><div class="gloss-term">LH — Lower High</div><div class="gloss-def">A peak lower than the previous peak. Part of bearish market structure.</div></div>
+<div class="gloss-item"><div class="gloss-term">LL — Lower Low</div><div class="gloss-def">A trough lower than the previous trough. Confirms the downtrend is intact.</div></div>
+<div class="gloss-item"><div class="gloss-term">Swing High</div><div class="gloss-def">A high that is higher than highs on both sides. A liquidity level above price.</div></div>
+<div class="gloss-item"><div class="gloss-term">Swing Low</div><div class="gloss-def">A low that is lower than lows on both sides. A liquidity level below price.</div></div>
+<div class="gloss-item"><div class="gloss-term">FVG — Fair Value Gap</div><div class="gloss-def">A 3-candle price imbalance where the market moved too fast. Price often returns to fill it.</div></div>
+<div class="gloss-item"><div class="gloss-term">Order Block (OB)</div><div class="gloss-def">Last opposite candle before a strong move. Institutional zone where price often reverses.</div></div>
+<div class="gloss-item"><div class="gloss-term">R:R — Risk to Reward</div><div class="gloss-def">Ratio comparing your potential loss to your potential profit. Minimum: 1:2.</div></div>
+<div class="gloss-item"><div class="gloss-term">SL — Stop Loss</div><div class="gloss-def">A level that automatically closes your trade to limit losses. Non-negotiable on every trade.</div></div>
+<div class="gloss-item"><div class="gloss-term">TP — Take Profit</div><div class="gloss-def">A level that automatically closes your trade when your profit target is reached.</div></div>
+<div class="gloss-item"><div class="gloss-term">MA — Moving Average</div><div class="gloss-def">An indicator showing average price over a period. Used as a trend filter.</div></div>
+<div class="gloss-item"><div class="gloss-term">Liquidity Sweep</div><div class="gloss-def">When price briefly moves above/below a key level to collect stop losses, then reverses.</div></div>
+<div class="gloss-item"><div class="gloss-term">Bullish Engulfing</div><div class="gloss-def">A green candle that completely engulfs the previous red candle. Strongest 2-candle buy signal.</div></div>
+</div>
+</section>
+
+<section class="section" style="padding-top:40px;padding-bottom:60px">
+<div class="risk-warn"><strong>⚠️ Risk Disclosure:</strong> Forex trading involves substantial risk of loss. Leverage amplifies both gains and losses. Past results do not guarantee future performance. This course provides education only — not financial advice or signals. Always practise on a demo account before risking real money. Never trade money you cannot afford to lose. Consider consulting a licensed financial advisor before trading.</div>
+</section>
+
+<footer>
+<div class="footer-grid">
+<div>
+<div class="f-logo">FXLearn</div>
+<p class="f-desc">A complete 20-lecture forex trading course built on Smart Money Concepts, price action, and professional risk management. From complete beginner to trading with real skill and confidence.</p>
+</div>
+<div>
+<div class="f-head">Core Lectures</div>
+<ul class="f-links">
+<li><a href="#lec-1">What Is Forex?</a></li>
+<li><a href="#lec-3">Support & Resistance</a></li>
+<li><a href="#lec-7">BoS & ChOCH</a></li>
+<li><a href="#lec-9">Risk Management</a></li>
+<li><a href="#lec-14">Multi-Timeframe</a></li>
+</ul>
+</div>
+<div>
+<div class="f-head">Advanced</div>
+<ul class="f-links">
+<li><a href="#lec-18">Liquidity Sweeps</a></li>
+<li><a href="#lec-19">Fair Value Gaps</a></li>
+<li><a href="#lec-20">Order Blocks</a></li>
+<li><a href="#glossary">Glossary</a></li>
+<li><a href="#lec-12">Trading Plan</a></li>
+</ul>
+</div>
+</div>
+<div class="f-bottom">
+<span class="f-copy">© 2026 FXLearn — For educational purposes only.</span>
+<span class="f-copy">Trading involves risk. Never risk money you cannot afford to lose.</span>
+</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.querySelectorAll('.prob-fill').forEach(bar => {
+const w = bar.style.width;
+bar.style.width = '0%';
+setTimeout(() => { bar.style.width = w; }, 150);
+});
+}
+});
+}, { threshold: 0.3 });
+document.querySelectorAll('.prob-card').forEach(c => observer.observe(c));
+document.querySelectorAll('#mobile-nav a').forEach(a => {
+a.addEventListener('click', () => document.getElementById('mobile-nav').classList.remove('open'));
+});
+</script>
+</body></html>
